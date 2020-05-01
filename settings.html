@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- Head -->
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no,
+            maximum-scale=1, shrink-to-fit=no">
+        <title>Messenger - Responsive Bootstrap Application</title>
+
+        <!-- Template core CSS -->
+
+        <link rel="stylesheet"  id="cssStyle">
+        <!-- <link href="css/template.dark.css" rel="stylesheet"> -->
+
+        <!-- Font awesome 5 -->
+        <link href="fontawesome/css/all.min.css" type="text/css"
+            rel="stylesheet">
+
+
+
+    </head>
+    <!-- Head -->
+
+    <body>
+
+            <div class="main main-visible" data-mobile-height="">
+
+                <!-- Chat -->
+                <div class="chat">
+
+                    <!-- Chat: body -->
+                    <div class="chat-body">
+
+                        <!-- Chat: Header -->
+                        <div class="chat-header border-bottom py-4 py-lg-6
+                            px-lg-8">
+                            <div class="container-xxl">
+
+                                <div class="row align-items-center">
+
+                                    <!-- Close chat(mobile) -->
+                                    <div class="col-3 d-xl-none">
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item">
+                                                <a class="text-muted px-0" id="getback"
+                                                    data-chat="open">
+                                                    <i class="icon-md fa
+                                                        fa-chevron-left"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Chat photo -->
+                                    <div class="col-6 col-xl-6">
+                                        <div class="media text-center
+                                            text-xl-left">
+                                            <div class="media-body
+                                                align-self-center
+                                                text-truncate">
+                                                <h6 class="text-truncate mb-n1">Settings</h6>
+                                                <small class="text-muted">Update
+                                                    your profile details</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div><!-- .row -->
+
+                            </div>
+                        </div>
+                        <!-- Chat: Header -->
+
+                        <!-- Chat: Content-->
+                        <div class="chat-content px-lg-8">
+                            <div class="container-xxl py-6 py-lg-10">
+
+                                <!-- Accordion -->
+                                <div class="accordion modified-accordion mb-n6
+                                    mb-lg-8" id="profile-settings">
+                                    <div class="card-columns">
+
+                                        <!-- Card -->
+                                        <div class="card mb-6 mb-lg-8">
+                                            <div class="card-header
+                                                position-relative">
+                                                <a href="#" class="text-reset
+                                                    d-block stretched-link
+                                                    collapsed"
+                                                    data-toggle="collapse"
+                                                    data-target="#profile-settings-account"
+                                                    aria-controls="profile-settings-account"
+                                                    aria-expanded="true">
+                                                    <div class="row no-gutters
+                                                        align-items-center">
+                                                        <!-- Title -->
+                                                        <div class="col">
+                                                            <h5>Account</h5>
+                                                            <p>Update your
+                                                                profile details.</p>
+                                                        </div>
+
+                                                        <!-- Icon -->
+                                                        <div class="col-auto">
+                                                            <i class="text-muted
+                                                                icon-md fa
+                                                                fa-user"></i>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                            <div id="profile-settings-account"
+                                                class="collapse show"
+                                                data-parent="#profile-settings">
+                                                <div class="card-body">
+                                                    <form action="#" onsubmit="changeData()">
+                                                        <div class="form-group">
+                                                            <label
+                                                                class="small">Profile Picture</label>
+                                                            <div
+                                                                class="position-relative
+                                                                text-center
+                                                                bg-secondary
+                                                                rounded p-6">
+                                                                <div
+                                                                    class="avatar
+                                                                    bg-primary
+                                                                    text-white
+                                                                    mb-5">
+                                                                    <i
+                                                                        class="icon-md
+                                                                        fa
+                                                                        fa-image"></i>
+                                                                </div>
+
+                                                                <p class="small
+                                                                    text-muted
+                                                                    mb-0">You
+                                                                    can upload
+                                                                    jpg, gif or
+                                                                    png files.
+                                                                    <br> Max
+                                                                    file size
+                                                                    3mb.</p>
+                                                                <input
+                                                                    id="upload-user-photo"
+                                                                    class="d-none"
+                                                                    type="file">
+                                                                <label
+                                                                    class="stretched-label
+                                                                    mb-0"
+                                                                    for="upload-user-photo"></label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="small"
+                                                                for="profile-name">Name</label>
+                                                            <input 
+                                                                class="form-control
+                                                                form-control-lg"
+                                                                name="profile-name"
+                                                                id="profile-name"
+                                                                type="text"
+                                                                placeholder="Type your name">
+                                                        </div>
+
+                                                        <!-- <div class="form-group">
+                                                            <label class="small"
+                                                                for="profile-phone">Phone</label>
+                                                            <input
+                                                                class="form-control
+                                                                form-control-lg"
+                                                                name="profile-phone"
+                                                                id="profile-phone"
+                                                                type="text"
+                                                                placeholder="91+ 1234567890">
+                                                        </div> -->
+
+                                                        <!-- <div class="form-group">
+                                                            <label class="small"
+                                                                for="profile-email">Email</label>
+                                                            <input
+                                                                class="form-control
+                                                                form-control-lg"
+                                                                name="profile-email"
+                                                                id="profile-email"
+                                                                type="email"
+                                                                placeholder="you@yoursite.com">
+                                                        </div> -->
+
+                                                        <div class="form-group">
+                                                            <label class="small"
+                                                                for="profile-about">Bio</label>
+                                                            <textarea 
+                                                                class="form-control
+                                                                form-control-lg"
+                                                                id="profile-about"
+                                                                rows="3"
+                                                                placeholder="Express yourself"
+                                                                data-autosize="true"
+                                                                style="overflow:
+                                                                hidden;
+                                                                overflow-wrap:
+                                                                break-word;
+                                                                resize: none;
+                                                                height: 104px;"></textarea>
+                                                        </div>
+
+                                                        <button class="btn
+                                                            btn-lg btn-primary
+                                                            btn-block"
+                                                            type="submit">Save
+                                                            Preferences</button>
+                                                    </form>
+                                                </div>
+                                            </div><!-- .collapse -->
+
+                                        </div>
+                                        <!-- Card -->
+
+                                        <!-- Card -->
+                                        <!-- <div class="card mb-6 mb-lg-8">
+                                            <div class="card-header
+                                                position-relative">
+                                                <a href="#" class="text-reset
+                                                    d-block stretched-link
+                                                    collapsed"
+                                                    data-toggle="collapse"
+                                                    data-target="#profile-settings-notifications"
+                                                    aria-controls="profile-settings-notifications"
+                                                    aria-expanded="true">
+                                                    <div class="row no-gutters
+                                                        align-items-center"> -->
+                                                        <!-- Title -->
+                                                        <!-- <div class="col">
+                                                            <h5>Notifications</h5>
+                                                            <p>Update your
+                                                                profile details.</p>
+                                                        </div> -->
+
+                                                        <!-- Icon -->
+                                                        <!-- <div class="col-auto">
+                                                            <i class="text-muted
+                                                                icon-md fa
+                                                                fa-bell"></i>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                            <div
+                                                id="profile-settings-notifications"
+                                                class="collapse show"
+                                                data-parent="#profile-settings">
+                                                <div class="card-body">
+                                                    <ul class="list-group
+                                                        list-group-flush">
+                                                        <li
+                                                            class="list-group-item
+                                                            pt-0 px-0">
+                                                            <div
+                                                                class="d-flex
+                                                                align-items-center
+                                                                justify-content-between
+                                                                mb-2"> -->
+                                                                <!-- Title -->
+                                                                <!-- <h6
+                                                                    class="mb-0">Sound</h6> -->
+                                                                <!-- Switch -->
+                                                                <!-- <div
+                                                                    class="custom-control
+                                                                    custom-switch">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        class="custom-control-input"
+                                                                        id="custom-switch-1">
+                                                                    <label
+                                                                        class="custom-control-label"
+                                                                        for="custom-switch-1"></label>
+                                                                </div>
+                                                            </div>
+                                                            <p>Update your
+                                                                profile details.</p>
+                                                        </li>
+
+                                                        <li
+                                                            class="list-group-item
+                                                            px-0">
+                                                            <div class="d-flex
+                                                                justify-content-between
+                                                                mb-2"> -->
+                                                                <!-- Title -->
+                                                                <!-- <h6
+                                                                    class="mb-0">Exceptions</h6> -->
+                                                                <!-- Switch -->
+                                                                <!-- <div
+                                                                    class="custom-control
+                                                                    custom-switch">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        class="custom-control-input"
+                                                                        id="custom-switch-2">
+                                                                    <label
+                                                                        class="custom-control-label"
+                                                                        for="custom-switch-2"></label>
+                                                                </div>
+                                                            </div>
+                                                            <p>Update your
+                                                                profile details.</p>
+                                                        </li>
+
+                                                        <li
+                                                            class="list-group-item
+                                                            px-0">
+                                                            <div class="d-flex
+                                                                justify-content-between
+                                                                mb-2"> -->
+                                                                <!-- Title -->
+                                                                <!-- <h6
+                                                                    class="mb-0">Message
+                                                                    preview</h6> -->
+                                                                <!-- Switch -->
+                                                                <!-- <div
+                                                                    class="custom-control
+                                                                    custom-switch">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        class="custom-control-input"
+                                                                        id="custom-switch-3">
+                                                                    <label
+                                                                        class="custom-control-label"
+                                                                        for="custom-switch-3"></label>
+                                                                </div>
+                                                            </div>
+                                                            <p>Update your
+                                                                profile details.</p>
+                                                        </li>
+
+                                                        <li
+                                                            class="list-group-item
+                                                            pb-0 px-0">
+                                                            <div class="d-flex
+                                                                justify-content-between
+                                                                mb-2"> -->
+                                                                <!-- Title -->
+                                                                <!-- <h6
+                                                                    class="mb-0">Show
+                                                                    notifications</h6> -->
+                                                                <!-- Switch -->
+                                                                <!-- <div
+                                                                    class="custom-control
+                                                                    custom-switch">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        class="custom-control-input"
+                                                                        id="custom-switch-4">
+                                                                    <label
+                                                                        class="custom-control-label"
+                                                                        for="custom-switch-4"></label>
+                                                                </div>
+                                                            </div>
+                                                            <p>Update your
+                                                                profile details.</p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>.collapse -->
+
+                                        <!-- </div> -->
+                                        <!-- Card -->
+
+                                        <!-- Card -->
+                                        <!-- <div class="card mb-6 mb-lg-8" id="setPassword">
+                                           
+
+                                        </div> -->
+                                        <!-- Card -->
+
+                                        <!-- Card -->
+                                        <!-- <div class="card mb-6 mb-lg-8">
+                                            <div class="card-header
+                                                position-relative">
+                                                <a href="#" class="text-reset
+                                                    d-block stretched-link
+                                                    collapsed"
+                                                    data-toggle="collapse"
+                                                    data-target="#profile-settings-social"
+                                                    aria-controls="profile-settings-social"
+                                                    aria-expanded="true">
+                                                    <div class="row no-gutters
+                                                        align-items-center"> -->
+                                                        <!-- Title -->
+                                                        <!-- <div class="col">
+                                                            <h5>Social</h5>
+                                                            <p>Update your
+                                                                profile details.</p>
+                                                        </div> -->
+
+                                                        <!-- Icon -->
+                                                        <!-- <div class="col-auto">
+                                                            <i class="text-muted
+                                                                icon-md fa
+                                                                fa-share-square"></i>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div> -->
+
+                                            <!-- <div id="profile-settings-social"
+                                                class="collapse show"
+                                                data-parent="#profile-settings">
+                                                <div class="card-body">
+
+                                                    <form action="#"> -->
+                                                        <!-- Twitter -->
+                                                        <!-- <a onclick="signInWithTwitter()">
+                                                        <div class="form-group">
+                                                            <label class="small"
+                                                                for="profile-twitter">Twitter</label>
+                                                            <div
+                                                                class="input-group">
+                                                                <div
+                                                                    class="input-group-prepend">
+                                                                    <div
+                                                                        class="btn
+                                                                        btn-ico
+                                                                        btn-secondary
+                                                                        btn-minimal">
+                                                                        <i
+                                                                            class="fab
+                                                                            fa-twitter"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input
+                                                                    id="profile-twitter"
+                                                                    type="text"
+                                                                    class="form-control
+                                                                    form-control-lg"
+                                                                    placeholder="Username"
+                                                                    aria-label="Username" disabled>
+                                                            </div>
+                                                        </div>
+                                                        </a> -->
+
+                                                        <!-- Facebook -->
+                                                        <!-- <a onclick="signInWithFacebook()">
+                                                        <div class="form-group">
+                                                            <label class="small"
+                                                                for="profile-facebook">Facebook</label>
+                                                            <div
+                                                                class="input-group">
+                                                                <div
+                                                                    class="input-group-prepend">
+                                                                    <div
+                                                                        class="btn
+                                                                        btn-ico
+                                                                        btn-secondary
+                                                                        btn-minimal">
+                                                                        <i
+                                                                            class="fab
+                                                                            fa-facebook"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input
+                                                                    id="profile-facebook"
+                                                                    type="text"
+                                                                    class="form-control
+                                                                    form-control-lg"
+                                                                    placeholder="Username"
+                                                                    aria-label="Username" disabled>
+                                                            </div>
+                                                        </div>
+                                                        </a> -->
+                                                        <!-- Google -->
+                                                        <!-- <div class="form-group">
+                                                            <label class="small"
+                                                                for="profile-Google">Google</label>
+                                                            <div
+                                                                class="input-group">
+                                                                <div
+                                                                    class="input-group-prepend">
+                                                                    <div
+                                                                        class="btn
+                                                                        btn-ico
+                                                                        btn-secondary
+                                                                        btn-minimal">
+                                                                        <i
+                                                                            class="fab
+                                                                            fa-google"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input
+                                                                    id="profile-Google"
+                                                                    type="text"
+                                                                    class="form-control
+                                                                    form-control-lg"
+                                                                    placeholder="Username"
+                                                                    aria-label="Username" disabled>
+                                                            </div>
+                                                        </div> -->
+
+                                                        <!-- Github -->
+                                                        <!-- <a onclick="signInWithGithub()">
+                                                        <div class="form-group">
+                                                            <label class="small"
+                                                                for="profile-github">Github</label>
+                                                            <div
+                                                                class="input-group">
+                                                                <div
+                                                                    class="input-group-prepend">
+                                                                    <div
+                                                                        class="btn
+                                                                        btn-ico
+                                                                        btn-secondary
+                                                                        btn-minimal">
+                                                                        <i
+                                                                            class="fab
+                                                                            fa-github"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input
+                                                                    id="profile-github"
+                                                                    type="text"
+                                                                    class="form-control
+                                                                    form-control-lg"
+                                                                    placeholder="Username"
+                                                                    aria-label="Username" disabled>
+                                                            </div>
+                                                        </div>
+                                                        </a> -->
+
+                                                        <!-- Email -->
+                                                        <!-- <a onclick="signInWithEmail()">
+                                                        <div class="form-group">
+                                                            <label class="small"
+                                                                for="profile-Email">Email</label>
+                                                            <div
+                                                                class="input-group">
+                                                                <div
+                                                                    class="input-group-prepend">
+                                                                    <div
+                                                                        class="btn
+                                                                        btn-ico
+                                                                        btn-secondary
+                                                                        btn-minimal">
+                                                                        <i
+                                                                            class="fa
+                                                                            fa-envelope"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input
+                                                                    id="profile-Email"
+                                                                    type="text"
+                                                                    class="form-control
+                                                                    form-control-lg"
+                                                                    placeholder="Username"
+                                                                    aria-label="Username" disabled>
+                                                            </div>
+                                                        </div>
+                                                        </a> -->
+                                                    
+                                                        <!-- <button type="button" 
+                                                            class="btn
+                                                            btn-lg btn-primary
+                                                            btn-block">
+                                                            <strong>
+                                                            Logout
+                                                            <span class="fa fa-sign-out-alt
+                                                                ml-auto" style="float:right"></span>
+                                                            </strong>
+                                                        </button>
+                                                    
+                                                        <button class="btn
+                                                            btn-lg btn-primary
+                                                            btn-block"
+                                                            type="submit">
+                                                            <strong>
+                                                            Login with Google
+                                                            <span class="fab fa-google
+                                                                ml-auto" style="float:right"></span>
+                                                            </strong>
+                                                        </button> -->
+                                                    <!-- </form>
+                                                </div> -->
+                                            <!-- </div>.collapse -->
+
+                                        <!-- </div> -->
+                                        <!-- Card -->
+
+                                    </div>
+                                </div>
+                                <!-- Accordion -->
+
+                            </div>
+                        </div>
+                        <!-- Chat: Content -->
+
+                    </div>
+                    <!-- Chat: body -->
+
+                </div>
+                <!-- Chat -->
+
+            </div>
+
+            <!-- Scripts -->
+            <script src="js/jquery.js"></script>
+            <script src="js/bootstrap.js"></script>
+            <script src="js/plugins.js"></script>
+            <script src="js/templates.js"></script>
+            <!-- Scripts -->
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+            <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase.js"></script>
+            <script src="js/firebase.init.js"></script>
+            <script src="js/chat.js"></script>
+            <script>
+                if (window.location.search){
+                const urlParams = new URLSearchParams(window.location.search)
+                theme = urlParams.get('theme')                  
+                if(theme=="dark"){
+                    document.getElementById('cssStyle').setAttribute("href", "css/template.dark.css")
+                    document.getElementById('getback').setAttribute("href", "index.html?theme=dark")
+                }
+                else {
+                    document.getElementById('cssStyle').setAttribute("href", "css/template.css")
+                    document.getElementById('getback').setAttribute("href", "index.html?theme=light")
+                }
+                }
+            </script>
+        </body>
+
+    </html>
