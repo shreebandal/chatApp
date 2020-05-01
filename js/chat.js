@@ -106,7 +106,7 @@ function callback(error){
 
 function signOut(){
     firebase.auth().signOut()
-    location.replace('index.html?theme='+theme)
+    location.replace('HomePage.html?theme='+theme)
 }
 
 onfirebaseSateChange()
@@ -173,7 +173,7 @@ function sendRequest(){
             
                     firebase.database().ref('notification').push(notify,callback)
 
-                    location.replace('index.html?theme='+theme)
+                    location.replace('HomePage.html?theme='+theme)
                     }
                     else{
                         alert("you already friend to these user")
@@ -291,13 +291,13 @@ function makeChat(user,usermail){
     firebase.database().ref('friends').push(myfriends,callback)
 
     db.remove()
-    location.replace('index.html?theme='+theme)
+    location.replace('HomePage.html?theme='+theme)
 }
 
 function deleteRequest(user){
     let db = firebase.database().ref('notification/'+user)
     db.remove()
-    location.replace('index.html?theme='+theme)
+    location.replace('HomePage.html?theme='+theme)
 }
 
 
