@@ -12,7 +12,7 @@
 
         <!-- Template core CSS -->
 
-        <link rel="stylesheet"  id="cssStyle">
+        <link rel="stylesheet" id="cssStyle">
         <!-- <link href="css/template.dark.css" rel="stylesheet"> -->
 
         <!-- Font awesome 5 -->
@@ -32,7 +32,7 @@
 
                 <!-- Chat -->
                 <div id="chat-2" class="chat dropzone-form-js"
-                    data-dz-url="some.php">
+                    data-dz-url="#">
 
                     <!-- Chat: body -->
                     <div class="chat-body">
@@ -49,7 +49,8 @@
                                         <ul class="list-inline mb-0">
                                             <li class="list-inline-item">
                                                 <a class="text-muted px-0"
-                                                    id="getback" data-chat="open">
+                                                    id="getback"
+                                                    data-chat="open">
                                                     <i class="icon-md fa
                                                         fa-chevron-left"></i>
                                                 </a>
@@ -65,14 +66,15 @@
                                                 avatar-online
                                                 d-lg-inline-block mr-5">
                                                 <img class="avatar-img"
-                                                            src="images/profile.jpg"
-                                                        id="friendpic">
+                                                    src="images/profile.jpg"
+                                                    id="friendpic">
                                             </div>
 
                                             <div class="media-body
                                                 align-self-center
                                                 text-truncate">
-                                                <h6 class="text-truncate mb-n1" id="friendname"></h6>
+                                                <h6 class="text-truncate mb-n1"
+                                                    id="friendname"></h6>
                                                 <span class="badge badge-dot
                                                     badge-success d-inline-block
                                                     d-xl-none mr-1"></span>
@@ -137,11 +139,34 @@
                                                             d-flex
                                                             align-items-center"
                                                             href="#"
-                                                            data-chat-sidebar-toggle="#chat-2-info">
+                                                            data-chat-sidebar-toggle="#chat-2-info" 
+                                                            onclick="displayFriend()">
                                                             Chat Info <span
                                                                 class="ml-auto
                                                                 pl-5 fa
                                                                 fa-info-circle"></span>
+                                                        </a>
+
+                                                        <a class="dropdown-item
+                                                            d-flex
+                                                            align-items-center"
+                                                            href="#"
+                                                            onclick="deleteAll()">
+                                                            Delete All <span
+                                                                class="ml-auto
+                                                                pl-5 fa
+                                                                fa-trash"></span>
+                                                        </a>
+
+                                                        <a class="dropdown-item
+                                                            d-flex
+                                                            align-items-center"
+                                                            href="#"
+                                                            onclick="backupAll()">
+                                                            Back Up <span
+                                                                class="ml-auto
+                                                                pl-5 fa
+                                                                fa-undo"></span>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -182,420 +207,8 @@
 
                         <!-- Chat: Content-->
                         <div class="chat-content px-lg-8" id="Msg">
-                            <div class="container-xxl py-6 py-lg-10" id="addMsg">
-
-                                <!-- Message -->
-                                
-                                <!-- Message -->
-
-                                <!-- Message -->
-                                
-                                <!-- Message -->
-
-                                <!-- Divider -->
-                                <div class="message-divider my-9 mx-lg-5">
-                                    <div class="row align-items-center">
-
-                                        <div class="col">
-                                            <hr>
-                                        </div>
-
-                                        <div class="col-auto">
-                                            <small class="text-muted">Today</small>
-                                        </div>
-
-                                        <div class="col">
-                                            <hr>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Divider -->
-
-                                <!-- Message -->
-                                <div class="message">
-                                    <!-- Avatar -->
-                                    <a class="avatar avatar-sm mr-4 mr-lg-5"
-                                        href="#"
-                                        data-chat-sidebar-toggle="#chat-2-info">
-                                        <img class="avatar-img"
-                                            src="images/profile.jpg" alt="">
-                                    </a>
-
-                                    <!-- Message: body -->
-                                    <div class="message-body">
-
-                                        <!-- Message: row -->
-                                        <div class="message-row">
-                                            <div class="d-flex
-                                                align-items-center">
-
-                                                <!-- Message: content -->
-                                                <div class="message-content
-                                                    bg-light w-100">
-                                                    <h6 class="mb-2">Anna
-                                                        Bridges shared 3 photos:</h6>
-                                                    <div class="form-row py-3">
-                                                        <div class="col">
-                                                            <img
-                                                                class="img-fluid
-                                                                rounded"
-                                                                src="https://themes.2the.me/Boomerang/1.2/assets/images/team/1.jpg"
-                                                                data-action="zoom"
-                                                                alt="">
-                                                        </div>
-                                                        <div class="col">
-                                                            <img
-                                                                class="img-fluid
-                                                                rounded"
-                                                                src="https://themes.2the.me/Boomerang/1.2/assets/images/team/2.jpg"
-                                                                data-action="zoom"
-                                                                alt="">
-                                                        </div>
-                                                        <div class="col">
-                                                            <img
-                                                                class="img-fluid
-                                                                rounded"
-                                                                src="https://themes.2the.me/Boomerang/1.2/assets/images/team/3.jpg"
-                                                                data-action="zoom"
-                                                                alt="">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="mt-1">
-                                                        <small
-                                                            class="opacity-65">8
-                                                            mins ago</small>
-                                                    </div>
-                                                </div>
-                                                <!-- Message: content -->
-
-                                                <!-- Message: dropdown -->
-                                                <div class="dropdown">
-                                                    <a class="text-muted
-                                                        opacity-60 ml-3"
-                                                        href="#"
-                                                        data-toggle="dropdown"
-                                                        aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <i class="fa
-                                                            fa-ellipsis-v"></i>
-                                                    </a>
-
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item
-                                                            d-flex
-                                                            align-items-center"
-                                                            href="#">
-                                                            Edit <span
-                                                                class="ml-auto
-                                                                fa fa-pen"></span>
-                                                        </a>
-                                                        <a class="dropdown-item
-                                                            d-flex
-                                                            align-items-center"
-                                                            href="#">
-                                                            Share <span
-                                                                class="ml-auto
-                                                                fa
-                                                                fa-share-alt"></span>
-                                                        </a>
-                                                        <a class="dropdown-item
-                                                            d-flex
-                                                            align-items-center"
-                                                            href="#">
-                                                            Delete <span
-                                                                class="ml-auto
-                                                                fa fa-trash"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <!-- Message: dropdown -->
-                                            </div>
-                                        </div>
-                                        <!-- Message: row -->
-
-                                        <!-- Message: row -->
-                                        <div class="message-row">
-                                            <div class="d-flex
-                                                align-items-center">
-
-                                                <!-- Message: content -->
-                                                <div class="message-content
-                                                    bg-light">
-                                                    <div>Yeah, I'm going to meet
-                                                        a friend of mine at the
-                                                        department store. I have
-                                                        to buy some presents for
-                                                        my parents.</div>
-
-                                                    <div class="mt-1">
-                                                        <small
-                                                            class="opacity-65">8
-                                                            mins ago</small>
-                                                    </div>
-                                                </div>
-                                                <!-- Message: content -->
-
-                                                <!-- Message: dropdown -->
-                                                <div class="dropdown">
-                                                    <a class="text-muted
-                                                        opacity-60 ml-3"
-                                                        href="#"
-                                                        data-toggle="dropdown"
-                                                        aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <i class="fa
-                                                            fa-ellipsis-v"></i>
-                                                    </a>
-
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item
-                                                            d-flex
-                                                            align-items-center"
-                                                            href="#">
-                                                            Edit <span
-                                                                class="ml-auto
-                                                                fa fa-pen"></span>
-                                                        </a>
-                                                        <a class="dropdown-item
-                                                            d-flex
-                                                            align-items-center"
-                                                            href="#">
-                                                            Share <span
-                                                                class="ml-auto
-                                                                fa
-                                                                fa-share-alt"></span>
-                                                        </a>
-                                                        <a class="dropdown-item
-                                                            d-flex
-                                                            align-items-center"
-                                                            href="#">
-                                                            Delete <span
-                                                                class="ml-auto
-                                                                fa fa-trash"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <!-- Message: dropdown -->
-                                            </div>
-                                        </div>
-                                        <!-- Message: row -->
-
-                                    </div>
-                                    <!-- Message: body -->
-                                </div>
-                                <!-- Message -->
-
-                                <!-- Message -->
-                                <div class="message message-right">
-                                    <!-- Avatar -->
-                                    <div class="avatar avatar-sm ml-4 ml-lg-5
-                                        d-none d-lg-block">
-                                        <img class="avatar-img"
-                                            src="images/profile.jpg" alt="">
-                                    </div>
-
-                                    <!-- Message: body -->
-                                    <div class="message-body">
-
-                                        <!-- Message: row -->
-                                        <div class="message-row">
-                                            <div class="d-flex
-                                                align-items-center
-                                                justify-content-end">
-
-                                                <!-- Message: dropdown -->
-                                                <div class="dropdown">
-                                                    <a class="text-muted
-                                                        opacity-60 mr-3"
-                                                        href="#"
-                                                        data-toggle="dropdown"
-                                                        aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <i class="fa
-                                                            fa-ellipsis-v"></i>
-                                                    </a>
-
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item
-                                                            d-flex
-                                                            align-items-center"
-                                                            href="#">
-                                                            Edit <span
-                                                                class="ml-auto
-                                                                fa fa-pen"></span>
-                                                        </a>
-                                                        <a class="dropdown-item
-                                                            d-flex
-                                                            align-items-center"
-                                                            href="#">
-                                                            Share <span
-                                                                class="ml-auto
-                                                                fa
-                                                                fa-share-alt"></span>
-                                                        </a>
-                                                        <a class="dropdown-item
-                                                            d-flex
-                                                            align-items-center"
-                                                            href="#">
-                                                            Delete <span
-                                                                class="ml-auto
-                                                                fa fa-trash"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <!-- Message: dropdown -->
-
-                                                <!-- Message: content -->
-                                                <div class="message-content
-                                                    bg-primary text-white">
-                                                    <div>I'm going to meet a
-                                                        friend of mine at the
-                                                        department store. Yeah,
-                                                        I have to buy some
-                                                        presents for my parents.</div>
-                                                    <div class="mt-1">
-                                                        <small
-                                                            class="opacity-65">8
-                                                            mins ago</small>
-                                                    </div>
-                                                </div>
-                                                <!-- Message: content -->
-
-                                            </div>
-                                        </div>
-                                        <!-- Message: row -->
-
-                                    </div>
-                                    <!-- Message: body -->
-                                </div>
-                                <!-- Message -->
-
-                                <!-- Message -->
-                                <div class="message">
-                                    <!-- Avatar -->
-                                    <a class="avatar avatar-sm mr-4 mr-lg-5"
-                                        href="#"
-                                        data-chat-sidebar-toggle="#chat-2-info">
-                                        <img class="avatar-img"
-                                            src="images/profile.jpg" alt="">
-                                    </a>
-
-                                    <!-- Message: body -->
-                                    <div class="message-body">
-
-                                        <!-- Message: row -->
-                                        <div class="message-row">
-                                            <div class="d-flex
-                                                align-items-center">
-
-                                                <!-- Message: content -->
-                                                <div class="message-content
-                                                    bg-light">
-                                                    <h6 class="mb-2">Anna
-                                                        Bridges</h6>
-                                                    <div>I'm going to meet a
-                                                        friend of mine at the
-                                                        department store. Yeah,
-                                                        I have to buy some
-                                                        presents for my parents.</div>
-                                                    <div class="mt-1">
-                                                        <small
-                                                            class="opacity-65">8
-                                                            mins ago</small>
-                                                    </div>
-                                                </div>
-                                                <!-- Message: content -->
-
-                                                <!-- Message: dropdown -->
-                                                <div class="dropdown">
-                                                    <a class="text-muted
-                                                        opacity-60 ml-3"
-                                                        href="#"
-                                                        data-toggle="dropdown"
-                                                        aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <i class="fa
-                                                            fa-ellipsis-v"></i>
-                                                    </a>
-
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item
-                                                            d-flex
-                                                            align-items-center"
-                                                            href="#">
-                                                            Edit <span
-                                                                class="ml-auto
-                                                                fa fa-pen"></span>
-                                                        </a>
-                                                        <a class="dropdown-item
-                                                            d-flex
-                                                            align-items-center"
-                                                            href="#">
-                                                            Share <span
-                                                                class="ml-auto
-                                                                fa
-                                                                fa-share-alt"></span>
-                                                        </a>
-                                                        <a class="dropdown-item
-                                                            d-flex
-                                                            align-items-center"
-                                                            href="#">
-                                                            Delete <span
-                                                                class="ml-auto
-                                                                fa fa-trash"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <!-- Message: dropdown -->
-                                            </div>
-                                        </div>
-                                        <!-- Message: row -->
-
-                                    </div>
-                                    <!-- Message: body -->
-                                </div>
-                                <!-- Message -->
-
-                                <!-- Message -->
-                                
-                                <!-- Message -->
-
-                                <!-- Message: Typing -->
-                                <div class="message">
-                                    <!-- Avatar -->
-                                    <a class="avatar avatar-sm mr-4 mr-lg-5"
-                                        href="#"
-                                        data-chat-sidebar-toggle="#chat-2-info">
-                                        <img class="avatar-img"
-                                            src="images/profile.jpg" alt="">
-                                    </a>
-
-                                    <!-- Message: body -->
-                                    <div class="message-body">
-
-                                        <!-- Message: row -->
-                                        <div class="message-row">
-                                            <div class="d-flex
-                                                align-items-center">
-
-                                                <!-- Message: content -->
-                                                <div class="message-content
-                                                    bg-light">
-                                                    <div>Anna is typing<span
-                                                            class="typing-dots"><span>.</span><span>.</span><span>.</span></span></div>
-                                                </div>
-                                                <!-- Message: content -->
-
-                                            </div>
-                                        </div>
-                                        <!-- Message: row -->
-
-                                    </div>
-                                    <!-- Message: body -->
-                                </div>
-                                <!-- Message: Typing -->
-
+                            <div class="container-xxl py-6 py-lg-10"
+                                id="addMsg">
                             </div>
 
                             <!-- Scroll to end -->
@@ -616,105 +229,101 @@
                             px-lg-8">
                             <div class="container-xxl">
 
-                                
-                                    <div class="form-row align-items-center">
-                                        <div class="col">
-                                            <div class="input-group">
 
-                                                <!-- Textarea -->
-                                                <textarea id="chat-id-2-input"
-                                                    class="form-control
+                                <div class="form-row align-items-center">
+                                    <div class="col">
+                                        <div class="input-group">
+
+                                            <!-- Textarea -->
+                                            <textarea id="chat-id-2-input"
+                                                class="form-control
+                                                bg-transparent border-0"
+                                                placeholder="Type your
+                                                message..." rows="1"
+                                                data-emoji-input=""
+                                                style="overflow: hidden;" required></textarea>
+                                            <!-- Emoji button -->
+                                            <div class="input-group-append">
+                                                <button class="btn btn-ico
+                                                    btn-secondary btn-minimal
                                                     bg-transparent border-0"
-                                                    placeholder="Type your message...
-                                                    " rows="1"
-                                                    data-emoji-input=""
-                                                    style="overflow: hidden;"></textarea>
+                                                    type="button"
+                                                    data-emoji-btn=""
+                                                    onclick="sendEmoji()">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24"
+                                                        viewBox="0 0 24 24"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        stroke-width="2"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="feather
+                                                        feather-smile
+                                                        injected-svg"><circle
+                                                            cx="12" cy="12"
+                                                            r="10"></circle><path
+                                                            d="M8 14s1.5 2 4 2
+                                                            4-2 4-2"></path><line
+                                                            x1="9" y1="9"
+                                                            x2="9.01" y2="9"></line><line
+                                                            x1="15" y1="9"
+                                                            x2="15.01" y2="9"></line></svg>
+                                                </button>
+                                            </div>
 
-                                                <!-- Emoji button -->
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-ico
-                                                        btn-secondary
-                                                        btn-minimal
-                                                        bg-transparent border-0"
-                                                        type="button"
-                                                        data-emoji-btn="">
-                                                        <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            width="24"
-                                                            height="24"
-                                                            viewBox="0 0 24 24"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                            stroke-width="2"
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            class="feather
-                                                            feather-smile
-                                                            injected-svg"><circle
-                                                                cx="12" cy="12"
-                                                                r="10"></circle><path
-                                                                d="M8 14s1.5 2 4
-                                                                2 4-2 4-2"></path><line
-                                                                x1="9" y1="9"
-                                                                x2="9.01"
-                                                                y2="9"></line><line
-                                                                x1="15" y1="9"
-                                                                x2="15.01"
-                                                                y2="9"></line></svg>
-                                                    </button>
-                                                </div>
-
-                                                <!-- Upload button -->
-                                                <div class="input-group-append">
-                                                    <button
-                                                        id="chat-upload-btn-2"
-                                                        class="btn btn-ico
-                                                        btn-secondary
-                                                        btn-minimal
-                                                        bg-transparent border-0
-                                                        dropzone-button-js
-                                                        dz-clickable"
-                                                        type="button">
-                                                        <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            width="24"
-                                                            height="24"
-                                                            viewBox="0 0 24 24"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                            stroke-width="2"
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            class="feather
-                                                            feather-paperclip
-                                                            injected-svg"><path
-                                                                d="M21.44
-                                                                11.05l-9.19
-                                                                9.19a6 6 0 0
-                                                                1-8.49-8.49l9.19-9.19a4
-                                                                4 0 0 1 5.66
-                                                                5.66l-9.2 9.19a2
-                                                                2 0 0
-                                                                1-2.83-2.83l8.49-8.48"></path></svg>
-                                                    </button>
-                                                </div>
-
+                                            <!-- Upload button -->
+                                            <div class="input-group-append">
+                                                <button
+                                                    id="chat-upload-btn-2"
+                                                    class="btn btn-ico
+                                                    btn-secondary
+                                                    btn-minimal
+                                                    bg-transparent border-0
+                                                    dropzone-button-js
+                                                    dz-clickable"
+                                                    type="button">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="24"
+                                                        height="24"
+                                                        viewBox="0 0 24 24"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        stroke-width="2"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="feather
+                                                        feather-paperclip
+                                                        injected-svg"><path
+                                                            d="M21.44
+                                                            11.05l-9.19
+                                                            9.19a6 6 0 0
+                                                            1-8.49-8.49l9.19-9.19a4
+                                                            4 0 0 1 5.66
+                                                            5.66l-9.2 9.19a2
+                                                            2 0 0
+                                                            1-2.83-2.83l8.49-8.48"></path></svg>
+                                                </button>
                                             </div>
 
                                         </div>
 
-                                        <!-- Submit button -->
-                                        <div class="col-auto">
-                                            <button class="btn btn-ico
-                                                btn-primary rounded-circle"
-                                                type="submit" onclick="sendMsg()">
-                                                <span class="fa fa-paper-plane"></span>
-                                            </button>
-                                        </div>
-
                                     </div>
 
-                          
+                                    <!-- Submit button -->
+                                    <div class="col-auto">
+                                        <button class="btn btn-ico
+                                            btn-primary rounded-circle"
+                                            type="submit" onclick="sendMsg()">
+                                            <span class="fa fa-paper-plane"></span>
+                                        </button>
+                                    </div>
+
+                                </div>
+
+
 
                             </div>
                         </div>
@@ -745,7 +354,7 @@
                                         <!-- Title(mobile) -->
                                         <li class="text-center d-block
                                             d-lg-none">
-                                            <h6 class="mb-n2">Anna Bridges</h6>
+                                            <h6 class="mb-n2" id="username"></h6>
                                             <small class="text-muted">Chat
                                                 Details</small>
                                         </li>
@@ -773,8 +382,8 @@
                                                     <a class="dropdown-item
                                                         d-flex
                                                         align-items-center"
-                                                        href="#">
-                                                        Delete
+                                                        href="#" onclick="unFriend()">
+                                                        Unfriend
                                                         <span class="ml-auto fa
                                                             fa-trash"></span>
                                                     </a>
@@ -791,34 +400,27 @@
                             <div class="hide-scrollbar flex-fill">
 
                                 <div class="border-bottom text-center py-9
-                                    px-10">
+                                    px-10" id="info">
                                     <!-- Photo -->
-                                    <div class="avatar avatar-xl mx-5 mb-5">
-                                        <img class="avatar-img"
-                                            src="images/profile.jpg" alt="">
-                                    </div>
-                                    <h5>Anna Bridges</h5>
-                                    <p class="text-muted">Bootstrap is an open
-                                        source toolkit for developing web with
-                                        HTML, CSS, and JS.</p>
+                                    
                                 </div>
 
                                 <!-- Navs -->
                                 <div class="nav nav-tabs nav-justified bg-light
-                                    rounded-0" role="tablist">
+                                    rounded-0" role="tablist" id="head">
                                     <a class="nav-item nav-link active"
-                                        href="#chat-2-user-details"
+                                        href="#chat-2-user-groups"
                                         data-toggle="tab" aria-selected="true"
-                                        role="tab">Details</a>
+                                        role="tab">Groups</a>
                                     <a class="nav-item nav-link"
                                         href="#chat-2-user-files"
-                                        data-toggle="tab" role="tab">Files</a>
+                                        data-toggle="tab" role="tab" onclick="showImg()">Images</a>
                                 </div>
                                 <!-- Navs -->
 
                                 <div class="tab-content" role="tablist">
                                     <!-- Details -->
-                                    <div id="chat-2-user-details"
+                                    <div id="chat-2-user-groups"
                                         class="tab-pane fade show active"
                                         role="tabpanel">
                                         <ul class="list-group list-group-flush
@@ -835,565 +437,18 @@
                                                         fa fa-globe"></i>
                                                 </div>
                                             </li>
-
-                                            <li class="list-group-item py-6">
-                                                <div class="media
-                                                    align-items-center">
-                                                    <div class="media-body">
-                                                        <p class="small
-                                                            text-muted mb-0">Phone</p>
-                                                        <p>+39 02 87 21 43 19</p>
-                                                    </div>
-                                                    <i class="text-muted icon-sm
-                                                        fa fa-microphone"></i>
-                                                </div>
-                                            </li>
-
-                                            <li class="list-group-item py-6">
-                                                <div class="media
-                                                    align-items-center">
-                                                    <div class="media-body">
-                                                        <p class="small
-                                                            text-muted mb-0">Email</p>
-                                                        <p>anna@gmail.com</p>
-                                                    </div>
-                                                    <i class="text-muted icon-sm
-                                                        fa fa-envelope"></i>
-                                                </div>
-                                            </li>
-
-                                            <li class="list-group-item py-6">
-                                                <div class="media
-                                                    align-items-center">
-                                                    <div class="media-body">
-                                                        <p class="small
-                                                            text-muted mb-0">Time</p>
-                                                        <p>10:03 am</p>
-                                                    </div>
-                                                    <i class="text-muted icon-sm
-                                                        fa fa-clock"></i>
-                                                </div>
-                                            </li>
-                                        </ul>
-
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item py-6">
-                                                <a href="#" class="media
-                                                    text-muted">
-                                                    <div class="media-body
-                                                        align-self-center">
-                                                        Twitter
-                                                    </div>
-                                                    <i class="icon-sm fab
-                                                        fa-twitter"></i>
-                                                </a>
-                                            </li>
-
-                                            <li class="list-group-item py-6">
-                                                <a href="#" class="media
-                                                    text-muted">
-                                                    <div class="media-body
-                                                        align-self-center">
-                                                        Facebook
-                                                    </div>
-                                                    <i class="icon-sm fab
-                                                        fa-facebook"></i>
-                                                </a>
-                                            </li>
-
-                                            <li class="list-group-item py-6">
-                                                <a href="#" class="media
-                                                    text-muted">
-                                                    <div class="media-body
-                                                        align-self-center">
-                                                        Github
-                                                    </div>
-                                                    <i class="icon-sm fab
-                                                        fa-github"></i>
-                                                </a>
-                                            </li>
                                         </ul>
                                     </div>
                                     <!-- Details -->
 
                                     <!-- Files -->
-                                    <div id="chat-2-user-files" class="tab-pane
+                                     <div id="chat-2-user-files" class="tab-pane
                                         fade" role="tabpanel">
                                         <ul class="list-group list-group-flush
-                                            list-group-no-border-first">
+                                            list-group-no-border-first" id="allImg">
+                                            
                                             <!-- File -->
-                                            <li class="list-group-item py-6">
-                                                <div class="media">
-
-                                                    <div class="icon-shape
-                                                        bg-primary text-white
-                                                        mr-5">
-                                                        <i class="fa
-                                                            fa-paperclip"></i>
-                                                    </div>
-
-                                                    <div class="media-body
-                                                        align-self-center
-                                                        overflow-hidden">
-                                                        <h6 class="text-truncate
-                                                            mb-0">
-                                                            <a href="#"
-                                                                class="text-reset"
-                                                                title="E5419783-047D-4B4C-B30E-F24DD8247731.JPG">E5419783-047D-4B4C-B30E-F24DD8247731.JPG</a>
-                                                        </h6>
-
-                                                        <ul class="list-inline
-                                                            small mb-0">
-                                                            <li
-                                                                class="list-inline-item">
-                                                                <span
-                                                                    class="text-muted">79.2
-                                                                    KB</span>
-                                                            </li>
-                                                            <li
-                                                                class="list-inline-item">
-                                                                <span
-                                                                    class="text-muted
-                                                                    text-uppercase">txt</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div
-                                                        class="align-self-center
-                                                        ml-5">
-                                                        <div class="dropdown">
-                                                            <a href="#"
-                                                                class="btn
-                                                                btn-sm btn-ico
-                                                                btn-link
-                                                                text-muted
-                                                                w-auto"
-                                                                data-toggle="dropdown"
-                                                                aria-haspopup="true"
-                                                                aria-expanded="false">
-                                                                <i class="fa
-                                                                    fa-ellipsis-v"></i>
-                                                            </a>
-                                                            <div
-                                                                class="dropdown-menu">
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Download
-                                                                    <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-download"></span>
-                                                                </a>
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Share <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-share-alt"></span>
-                                                                </a>
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Delete <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-trash"></span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </li>
-                                            <!-- File -->
-
-                                            <!-- File -->
-                                            <li class="list-group-item py-6">
-                                                <div class="media">
-
-                                                    <div class="icon-shape
-                                                        bg-primary text-white
-                                                        mr-5">
-                                                        <i class="fa
-                                                            fa-paperclip"></i>
-                                                    </div>
-
-                                                    <div class="media-body
-                                                        align-self-center
-                                                        overflow-hidden">
-                                                        <h6 class="text-truncate
-                                                            mb-0">
-                                                            <a href="#"
-                                                                class="text-reset"
-                                                                title="E5419783-047D-4B4C-B30E-F24DD8247731.JPG">E5419783-047D-4B4C-B30E-F24DD8247731.JPG</a>
-                                                        </h6>
-
-                                                        <ul class="list-inline
-                                                            small mb-0">
-                                                            <li
-                                                                class="list-inline-item">
-                                                                <span
-                                                                    class="text-muted">79.2
-                                                                    KB</span>
-                                                            </li>
-                                                            <li
-                                                                class="list-inline-item">
-                                                                <span
-                                                                    class="text-muted
-                                                                    text-uppercase">psd</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div
-                                                        class="align-self-center
-                                                        ml-5">
-                                                        <div class="dropdown">
-                                                            <a href="#"
-                                                                class="btn
-                                                                btn-sm btn-ico
-                                                                btn-link
-                                                                text-muted
-                                                                w-auto"
-                                                                data-toggle="dropdown"
-                                                                aria-haspopup="true"
-                                                                aria-expanded="false">
-                                                                <i class="fa
-                                                                    fa-ellipsis-v"></i>
-                                                            </a>
-                                                            <div
-                                                                class="dropdown-menu">
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Download
-                                                                    <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-download"></span>
-                                                                </a>
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Share <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-share-alt"></span>
-                                                                </a>
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Delete <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-trash"></span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </li>
-                                            <!-- File -->
-
-                                            <!-- File -->
-                                            <li class="list-group-item py-6">
-                                                <div class="media">
-
-                                                    <div class="icon-shape
-                                                        bg-primary text-white
-                                                        mr-5">
-                                                        <i class="fa
-                                                            fa-paperclip"></i>
-                                                    </div>
-
-                                                    <div class="media-body
-                                                        align-self-center
-                                                        overflow-hidden">
-                                                        <h6 class="text-truncate
-                                                            mb-0">
-                                                            <a href="#"
-                                                                class="text-reset"
-                                                                title="E5419783-047D-4B4C-B30E-F24DD8247731.JPG">E5419783-047D-4B4C-B30E-F24DD8247731.JPG</a>
-                                                        </h6>
-
-                                                        <ul class="list-inline
-                                                            small mb-0">
-                                                            <li
-                                                                class="list-inline-item">
-                                                                <span
-                                                                    class="text-muted">79.2
-                                                                    KB</span>
-                                                            </li>
-                                                            <li
-                                                                class="list-inline-item">
-                                                                <span
-                                                                    class="text-muted
-                                                                    text-uppercase">pdf</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div
-                                                        class="align-self-center
-                                                        ml-5">
-                                                        <div class="dropdown">
-                                                            <a href="#"
-                                                                class="btn
-                                                                btn-sm btn-ico
-                                                                btn-link
-                                                                text-muted
-                                                                w-auto"
-                                                                data-toggle="dropdown"
-                                                                aria-haspopup="true"
-                                                                aria-expanded="false">
-                                                                <i class="fa
-                                                                    fa-ellipsis-v"></i>
-                                                            </a>
-                                                            <div
-                                                                class="dropdown-menu">
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Download
-                                                                    <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-download"></span>
-                                                                </a>
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Share <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-share-alt"></span>
-                                                                </a>
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Delete <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-trash"></span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </li>
-                                            <!-- File -->
-
-                                            <!-- File -->
-                                            <li class="list-group-item py-6">
-                                                <div class="media">
-
-                                                    <div class="icon-shape
-                                                        bg-primary text-white
-                                                        mr-5">
-                                                        <i class="fa
-                                                            fa-paperclip"></i>
-                                                    </div>
-
-                                                    <div class="media-body
-                                                        align-self-center
-                                                        overflow-hidden">
-                                                        <h6 class="text-truncate
-                                                            mb-0">
-                                                            <a href="#"
-                                                                class="text-reset"
-                                                                title="E5419783-047D-4B4C-B30E-F24DD8247731.JPG">E5419783-047D-4B4C-B30E-F24DD8247731.JPG</a>
-                                                        </h6>
-
-                                                        <ul class="list-inline
-                                                            small mb-0">
-                                                            <li
-                                                                class="list-inline-item">
-                                                                <span
-                                                                    class="text-muted">79.2
-                                                                    KB</span>
-                                                            </li>
-                                                            <li
-                                                                class="list-inline-item">
-                                                                <span
-                                                                    class="text-muted
-                                                                    text-uppercase">txt</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div
-                                                        class="align-self-center
-                                                        ml-5">
-                                                        <div class="dropdown">
-                                                            <a href="#"
-                                                                class="btn
-                                                                btn-sm btn-ico
-                                                                btn-link
-                                                                text-muted
-                                                                w-auto"
-                                                                data-toggle="dropdown"
-                                                                aria-haspopup="true"
-                                                                aria-expanded="false">
-                                                                <i class="fa
-                                                                    fa-ellipsis-v"></i>
-                                                            </a>
-                                                            <div
-                                                                class="dropdown-menu">
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Download
-                                                                    <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-download"></span>
-                                                                </a>
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Share <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-share-alt"></span>
-                                                                </a>
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Delete <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-trash"></span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </li>
-                                            <!-- File -->
-
-                                            <!-- File -->
-                                            <li class="list-group-item py-6">
-                                                <div class="media">
-
-                                                    <div class="icon-shape
-                                                        bg-primary text-white
-                                                        mr-5">
-                                                        <i class="fa
-                                                            fa-paperclip"></i>
-                                                    </div>
-
-                                                    <div class="media-body
-                                                        align-self-center
-                                                        overflow-hidden">
-                                                        <h6 class="text-truncate
-                                                            mb-0">
-                                                            <a href="#"
-                                                                class="text-reset"
-                                                                title="E5419783-047D-4B4C-B30E-F24DD8247731.JPG">E5419783-047D-4B4C-B30E-F24DD8247731.JPG</a>
-                                                        </h6>
-
-                                                        <ul class="list-inline
-                                                            small mb-0">
-                                                            <li
-                                                                class="list-inline-item">
-                                                                <span
-                                                                    class="text-muted">79.2
-                                                                    KB</span>
-                                                            </li>
-                                                            <li
-                                                                class="list-inline-item">
-                                                                <span
-                                                                    class="text-muted
-                                                                    text-uppercase">pdf</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div
-                                                        class="align-self-center
-                                                        ml-5">
-                                                        <div class="dropdown">
-                                                            <a href="#"
-                                                                class="btn
-                                                                btn-sm btn-ico
-                                                                btn-link
-                                                                text-muted
-                                                                w-auto"
-                                                                data-toggle="dropdown"
-                                                                aria-haspopup="true"
-                                                                aria-expanded="false">
-                                                                <i class="fa
-                                                                    fa-ellipsis-v"></i>
-                                                            </a>
-                                                            <div
-                                                                class="dropdown-menu">
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Download
-                                                                    <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-download"></span>
-                                                                </a>
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Share <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-share-alt"></span>
-                                                                </a>
-                                                                <a
-                                                                    class="dropdown-item
-                                                                    d-flex
-                                                                    align-items-center"
-                                                                    href="#">
-                                                                    Delete <span
-                                                                        class="ml-auto
-                                                                        fa
-                                                                        fa-trash"></span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </li>
+                                           
                                             <!-- File -->
 
 
@@ -1432,13 +487,14 @@
                                 <div class="dropzone-image-preview">
                                     <div class="avatar avatar mr-5">
                                         <img src="#" class="avatar-img rounded"
-                                            data-dz-thumbnail="" alt="">
+                                            data-dz-thumbnail="" alt=""
+                                            id="filePic">
                                     </div>
                                 </div>
 
                                 <div class="media-body overflow-hidden">
                                     <h6 class="text-truncate small mb-0"
-                                        data-dz-name></h6>
+                                        data-dz-name id="fileName"></h6>
                                     <p class="extra-small" data-dz-size></p>
                                 </div>
 
@@ -1446,7 +502,7 @@
                                     <a href="#" class="btn btn-sm btn-link
                                         text-decoration-none text-muted"
                                         data-dz-remove>
-                                        <i class="fe-x"></i>
+                                        <span aria-hidden="true">&times;</span>
                                     </a>
                                 </div>
                             </div>
@@ -1456,67 +512,12 @@
             </div>
             <!-- DropzoneJS: Template -->
 
-            <!-- Modal: Invite friends -->
-            <div class="modal fade" id="invite-friends" tabindex="-1"
-                role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-
-                        <div class="modal-header">
-                            <div class="media flex-fill">
-                                <div class="icon-shape rounded-lg bg-primary
-                                    text-white mr-5">
-                                    <i class="fa fa-user-friends"></i>
-                                </div>
-                                <div class="media-body align-self-center">
-                                    <h5 class="modal-title">Invite friends</h5>
-                                    <p class="small">Invite colleagues, clients
-                                        and friends.</p>
-                                </div>
-                            </div>
-
-                            <button type="button" class="close"
-                                data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                        <div class="modal-body">
-                            <form action="#">
-                                <div class="form-group">
-                                    <label for="invite-email" class="small">Email</label>
-                                    <input type="email" class="form-control
-                                        form-control-lg" id="invite-email">
-                                </div>
-
-                                <div class="form-group mb-0">
-                                    <label for="invite-message" class="small">Invitation
-                                        message</label>
-                                    <textarea class="form-control
-                                        form-control-lg" id="invite-message"
-                                        data-autosize="true"></textarea>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-lg btn-block
-                                btn-primary d-flex align-items-center">
-                                Invite friend
-                                <i class="fa fa-user-plus ml-auto"></i>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Modal: Invite friends -->
-
             <!-- Scripts -->
             <script src="js/jquery.js"></script>
             <script src="js/bootstrap.js"></script>
-            <script src="js/plugins.js"></script>
-            <script src="js/templates.js"></script>
+            <script src="js/plugin.js"></script>
+            <script src="js/template.js"></script>
+            <script src="js/emoji.js"></script>
             <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase.js"></script>
             <script src="js/firebase.init.js"></script>
             <!-- Scripts -->
@@ -1538,6 +539,7 @@
                 }
                 }
                 const input = document.getElementById('chat-id-2-input')
+                let count = 0
                 input.addEventListener('input',()=>{
                     if(input.value.length == 23){
                     input.setAttribute("rows", "1")
@@ -1549,6 +551,27 @@
                     else if(input.value.length == 70){
                     input.setAttribute("rows", "3")
                     input.removeAttribute("style")
+                    }
+
+                    let dataKey = ""
+                    if(input.value.length > 0 && count == 0){            
+                    let message = { img : "" , msg : "" , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0" , mydelete : "0" }
+                    firebase.database().ref('chatMsg').child(friend).push(message)
+                    count++
+                    }
+                    else if(input.value.length == 0){
+
+                        let db = firebase.database().ref('chatMsg').child(friend)
+                        db.on('value' , (users)=>{
+                            users.forEach((data)=>{
+                                let user = data.val()
+                                if(user.img == "" && user.msg == ""){
+                                    dataKey = data.key
+                                }
+                            })
+                        })
+                        firebase.database().ref('chatMsg').child(friend+'/'+dataKey).remove()
+                        count--
                     }
 
                 })
@@ -1566,17 +589,73 @@
                         })
                     })
                     loadChatMsg()
+                    
                 }
 
                 function sendMsg(){
-                    let message = { msg : document.getElementById('chat-id-2-input').value , dateTime : new Date().toLocaleString() , userId : myself }
+                    if(document.getElementById('chat-id-2-input').value != "" || document.getElementsByClassName('dropzone-previews-js')[0].innerHTML != ""){
+                    let message = {}
+                    if(document.getElementsByClassName('dropzone-previews-js')[0].innerHTML != ""){
+                        message = { img : document.getElementById('filePic').src , msg : document.getElementById('chat-id-2-input').value , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0", mydelete : "0" }
+                        document.getElementsByClassName('dropzone-previews-js')[0].innerHTML = ""
+                    }
+                    else{
+                        message = { img : "" , msg : document.getElementById('chat-id-2-input').value , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0" , mydelete : "0" }
+                    }
                     firebase.database().ref('chatMsg').child(friend).push(message,(error) => {
                         if(error){
                             alert(error)
                         }
                     })
+                  
+                    if(count === 1){
+                    let dataKey = ""
+                    let db = firebase.database().ref('chatMsg').child(friend)
+                        db.on('value' , (users)=>{
+                            users.forEach((data)=>{
+                                let user = data.val()
+                                if(user.img == "" && user.msg == ""){
+                                    dataKey = data.key
+                                }
+                            })
+                        })
+                        firebase.database().ref('chatMsg').child(friend+'/'+dataKey).remove()
+                        count--
+                    }
                     
-                            document.getElementById('chat-id-2-input').value = ""
+                    if(mytemp === 1){
+                        mytemp--
+                        document.getElementById('Msg').innerHTML = `<div class="container-xxl py-6 py-lg-10"
+                            id="addMsg"></div>`
+                            loadChatMsg()
+                    }
+                    
+                    firebase.database().ref('fcmTokens').child(bff).once('value').then((data)=>{
+                        $.ajax({
+                            url : 'https://fcm.googleapis.com/fcm/send' ,
+                            method : 'POST',
+                            headers : {
+                                'Content-Type' : 'application/json',
+                                'Authorization' : 'key=AAAA6cyw39w:APA91bHoZfbP6BSo_H91JnHecsU5-uwLuA5pNdPycHl29g5CJNUyImW4Om4rKMrtqbrR2KGLaA79tbubO_Yyt-h2kyQoYLzyUj3YQkAtTkTgZr5JQNerbcps5LXeAhJH3NX9A0xtK2_N'
+
+                            },
+                            data : JSON.stringify({
+                                'to' : data.val().token_id,
+                                'data' : {
+                                    'message' : message.msg.substring(0,30) + '...',
+                                    'icon' : firebase.auth().currentUser.photoURL
+                                }  
+                            }),
+                            success : (response) => {
+                                console.log(response)
+                            },
+                            error : (xhr,status,errormsg) => {
+                                console.log(xhr.errormsg)
+                            }
+                        })
+                    }) 
+                    document.getElementById('chat-id-2-input').value = ""
+                }
                 }
 
                 function loadChatMsg(){
@@ -1587,7 +666,96 @@
                             let user = data.val()
                             let dateTime = user.dateTime.split(',')
                             if(friend===bff){
-                            if(user.userId === myself){
+                            if(user.userId === myself && user.mydelete === "0"){
+                                if(user.img != "" || user.msg != ""){
+                                if(user.img != ""){
+                                temp += `
+                                    <div class="message message-right">
+                            
+                                    <div class="message-body">
+                                    <div class="message-row">
+                                            <div class="d-flex
+                                                align-items-center
+                                                justify-content-end">
+
+                                                <div class="dropdown mr-3">
+                                                    <a class="text-muted
+                                                        opacity-60 ml-3"
+                                                        href="#"
+                                                        data-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                        <i class="fa
+                                                            fa-ellipsis-v"></i>
+                                                    </a>
+
+                                                    <div class="dropdown-menu">
+                                                        
+                                                        <a class="dropdown-item
+                                                            d-flex
+                                                            align-items-center"
+                                                            href="#" onclick="sharePic('${user.img}')">
+                                                            Share <span
+                                                                class="ml-auto
+                                                                fa
+                                                                fa-share-alt"></span>
+                                                        </a>
+                                                        <a class="dropdown-item
+                                                            d-flex
+                                                            align-items-center"
+                                                            href="#" onclick="deleteMsg('${data.key}')">
+                                                            Delete<span
+                                                                class="ml-auto
+                                                                fa fa-trash"></span>
+                                                        </a>
+                                                        <a class="dropdown-item
+                                                            d-flex
+                                                            align-items-center"
+                                                            href="#" onclick="deleteBoth('${data.key}')">
+                                                            Remove <span
+                                                                class="ml-auto
+                                                                fa fa-dumpster"></span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                       
+                                                <div class="message-content
+                                                    bg-primary text-white">
+        
+                                                    <div class="form-row">
+                                                        <div class="col py-3">
+                                                            <img width="97%"
+                                                                class="img-fluid
+                                                                rounded"
+                                                                src="${user.img}"
+                                                                data-action="zoom"
+                                                                alt="">
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div class="mt-1">
+                                                        <div>${user.msg}</div>
+
+                                                        <div class="mt-1">
+                                                            <small
+                                                                class="opacity-65">${dateTime[1]}</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                          
+                                                                          
+                                            </div>
+                                        </div>
+                                    </div>
+                                        </div>
+
+                                    `
+                                    document.getElementById('Msg').scrollTo(0,document.getElementById('Msg').scrollHeight)
+                              
+                            }
+                            else{
                                 temp +=`
                                     <div class="message message-right">
                             
@@ -1614,7 +782,7 @@
                                                             <a class="dropdown-item
                                                                 d-flex
                                                                 align-items-center"
-                                                                href="#">
+                                                                href="#" onclick="editMsg('${user.msg}')">
                                                                 Edit <span
                                                                     class="ml-auto
                                                                     fa fa-pen"></span>
@@ -1622,7 +790,7 @@
                                                             <a class="dropdown-item
                                                                 d-flex
                                                                 align-items-center"
-                                                                href="#">
+                                                                href="#" onclick="shareMsg('${user.msg}')">
                                                                 Share <span
                                                                     class="ml-auto
                                                                     fa
@@ -1631,10 +799,18 @@
                                                             <a class="dropdown-item
                                                                 d-flex
                                                                 align-items-center"
-                                                                href="#">
-                                                                Delete <span
+                                                                href="#" onclick="deleteMsg('${data.key}')">
+                                                                Delete<span
                                                                     class="ml-auto
                                                                     fa fa-trash"></span>
+                                                            </a>
+                                                            <a class="dropdown-item
+                                                                d-flex
+                                                                align-items-center"
+                                                                href="#" onclick="deleteBoth('${data.key}')">
+                                                                Remove <span
+                                                                    class="ml-auto
+                                                                    fa fa-dumpster"></span>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -1659,6 +835,127 @@
                                     </div>
                                     `
                                     document.getElementById('Msg').scrollTo(0,document.getElementById('Msg').scrollHeight)
+                               
+                                }
+                            }
+                            }
+                            else if( user.mydelete === "0"){
+                                if(user.img == "" && user.msg == ""){
+                                temp +=  `<div class="message">
+                                    
+                                    <a class="avatar avatar-sm mr-4 mr-lg-5"
+                                        href="#"
+                                        data-chat-sidebar-toggle="#chat-2-info">
+                                        <img class="avatar-img"
+                                            src="${document.getElementById('friendpic').src}" alt="">
+                                    </a>
+
+                                   
+                                    <div class="message-body">
+
+                                        
+                                        <div class="message-row">
+                                            <div class="d-flex
+                                                align-items-center">
+
+                                                
+                                                <div class="message-content
+                                                    bg-light">
+                                                    <div>${document.getElementById('friendname').innerHTML} is typing<span
+                                                            class="typing-dots"><span>.</span><span>.</span><span>.</span></span></div>
+                                                </div>
+                                                
+
+                                            </div>
+                                        </div>
+                                        
+
+                                    </div>
+                                    
+                                </div>`
+                            }else if(user.img != ""){
+                                temp += `
+                                <div class="message">
+                                
+                                <a class="avatar avatar-sm mr-4 mr-lg-5"
+                                    href="#"
+                                    data-chat-sidebar-toggle="#chat-2-info">
+                                    <img class="avatar-img"
+                                        src="${document.getElementById('friendpic').src}" alt="">
+                                </a>
+                            
+                                    <div class="message-body">
+                                    <div class="message-row">
+                                            <div class="d-flex
+                                                align-items-center
+                                                ">
+
+                                                                              
+                                                <div class="message-content
+                                                    bg-light">
+        
+                                                    <div class="form-row">
+                                                        <div class="col py-3">
+                                                            <h6 class="mb-2">${document.getElementById('friendname').innerHTML}</h6>
+                                                            <img width="97%"
+                                                                class="img-fluid
+                                                                rounded"
+                                                                src="${user.img}"
+                                                                data-action="zoom"
+                                                                alt="">
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div class="mt-1">
+                                                        <small
+                                                            class="opacity-65">${dateTime[1]}</small>
+                                                    </div>
+                                                </div>
+                             
+                                                <div class="dropdown">
+                                                    <a class="text-muted
+                                                        opacity-60 ml-3"
+                                                        href="#"
+                                                        data-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                        <i class="fa
+                                                            fa-ellipsis-v"></i>
+                                                    </a>
+
+                                                    <div class="dropdown-menu">
+                                                        
+                                                        <a class="dropdown-item
+                                                            d-flex
+                                                            align-items-center"
+                                                            href="#" onclick="sharePic('${user.img}')">
+                                                            Share <span
+                                                                class="ml-auto
+                                                                fa
+                                                                fa-share-alt"></span>
+                                                        </a>
+                                                        <a class="dropdown-item
+                                                            d-flex
+                                                            align-items-center"
+                                                            href="#" onclick="deleteMsg('${data.key}')">
+                                                            Delete <span
+                                                                class="ml-auto
+                                                                fa fa-trash"></span>
+                                                        </a>
+                                                    </div>
+                                     
+                                                
+                                                </div>
+                                       
+                                            </div>
+                                        </div>
+                                    </div>
+                                        </div>
+
+                                    `
+                                    document.getElementById('Msg').scrollTo(0,document.getElementById('Msg').scrollHeight)
+                                
                             }
                             else{
                                 temp +=`
@@ -1703,7 +1000,7 @@
                                                             <a class="dropdown-item
                                                                 d-flex
                                                                 align-items-center"
-                                                                href="#">
+                                                                href="#" onclick="editMsg('${user.msg}')">
                                                                 Edit <span
                                                                     class="ml-auto
                                                                     fa fa-pen"></span>
@@ -1711,7 +1008,7 @@
                                                             <a class="dropdown-item
                                                                 d-flex
                                                                 align-items-center"
-                                                                href="#">
+                                                                href="#" onclick="shareMsg('${user.msg}')">
                                                                 Share <span
                                                                     class="ml-auto
                                                                     fa
@@ -1720,7 +1017,7 @@
                                                             <a class="dropdown-item
                                                                 d-flex
                                                                 align-items-center"
-                                                                href="#">
+                                                                href="#" onclick="deleteMsg('${data.key}')">
                                                                 Delete <span
                                                                     class="ml-auto
                                                                     fa fa-trash"></span>
@@ -1736,10 +1033,131 @@
                                     </div>
                                     `
                                     document.getElementById('Msg').scrollTo(0,document.getElementById('Msg').scrollHeight)
+                                
+                                }
                             }
                         }
-                        else{
-                            if(user.userId !== myself){
+                        else {
+                            if(user.userId !== myself && user.isdelete === "0"){
+                                if(user.img == "" && user.msg == ""){
+                                temp +=  `<div class="message">
+                                    
+                                    <a class="avatar avatar-sm mr-4 mr-lg-5"
+                                        href="#"
+                                        data-chat-sidebar-toggle="#chat-2-info">
+                                        <img class="avatar-img"
+                                            src="${document.getElementById('friendpic').src}" alt="">
+                                    </a>
+
+                                   
+                                    <div class="message-body">
+
+                                        
+                                        <div class="message-row">
+                                            <div class="d-flex
+                                                align-items-center">
+
+                                                
+                                                <div class="message-content
+                                                    bg-light">
+                                                    <div>${document.getElementById('friendname').innerHTML} is typing<span
+                                                            class="typing-dots"><span>.</span><span>.</span><span>.</span></span></div>
+                                                </div>
+                                                
+
+                                            </div>
+                                        </div>
+                                        
+
+                                    </div>
+                                    
+                                </div>`
+                            }
+                            else if(user.img != ""){
+                                    temp += `
+                                <div class="message">
+                                
+                                <a class="avatar avatar-sm mr-4 mr-lg-5"
+                                    href="#"
+                                    data-chat-sidebar-toggle="#chat-2-info">
+                                    <img class="avatar-img"
+                                        src="${document.getElementById('friendpic').src}" alt="">
+                                </a>
+                            
+                                    <div class="message-body">
+                                    <div class="message-row">
+                                            <div class="d-flex
+                                                align-items-center
+                                                ">
+
+                                                                              
+                                                <div class="message-content
+                                                    bg-light">
+        
+                                                    <div class="form-row">
+                                                        <div class="col py-3">
+                                                            <h6 class="mb-2">${document.getElementById('friendname').innerHTML}</h6>
+                                                            <img width="97%"
+                                                                class="img-fluid
+                                                                rounded"
+                                                                src="${user.img}"
+                                                                data-action="zoom"
+                                                                alt="">
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div class="mt-1">
+                                                        <small
+                                                            class="opacity-65">${dateTime[1]}</small>
+                                                    </div>
+                                                </div>
+                             
+                                                <div class="dropdown">
+                                                    <a class="text-muted
+                                                        opacity-60 ml-3"
+                                                        href="#"
+                                                        data-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                        <i class="fa
+                                                            fa-ellipsis-v"></i>
+                                                    </a>
+
+                                                    <div class="dropdown-menu">
+                                                        
+                                                        <a class="dropdown-item
+                                                            d-flex
+                                                            align-items-center"
+                                                            href="#" onclick="sharePic('${user.img}')">
+                                                            Share <span
+                                                                class="ml-auto
+                                                                fa
+                                                                fa-share-alt"></span>
+                                                        </a>
+                                                        <a class="dropdown-item
+                                                            d-flex
+                                                            align-items-center"
+                                                            href="#" onclick="deleteMsg('${data.key}')">
+                                                            Delete <span
+                                                                class="ml-auto
+                                                                fa fa-trash"></span>
+                                                        </a>
+                                                    </div>
+                                     
+                                                
+                                                </div>
+                                       
+                                            </div>
+                                        </div>
+                                    </div>
+                                        </div>
+
+                                    `
+                                    document.getElementById('Msg').scrollTo(0,document.getElementById('Msg').scrollHeight)
+                                 
+                            }
+                            else{
                                 temp +=`
                                 <div class="message">
                                 
@@ -1782,7 +1200,7 @@
                                                     <a class="dropdown-item
                                                         d-flex
                                                         align-items-center"
-                                                        href="#">
+                                                        href="#" onclick="editMsg('${user.msg}')">
                                                         Edit <span
                                                             class="ml-auto
                                                             fa fa-pen"></span>
@@ -1790,7 +1208,7 @@
                                                     <a class="dropdown-item
                                                         d-flex
                                                         align-items-center"
-                                                        href="#">
+                                                        href="#" onclick="shareMsg('${user.msg}')">
                                                         Share <span
                                                             class="ml-auto
                                                             fa
@@ -1799,7 +1217,7 @@
                                                     <a class="dropdown-item
                                                         d-flex
                                                         align-items-center"
-                                                        href="#">
+                                                        href="#" onclick="deleteMsg('${data.key}')">
                                                         Delete <span
                                                             class="ml-auto
                                                             fa fa-trash"></span>
@@ -1815,8 +1233,96 @@
                             </div>
                             `
                             document.getElementById('Msg').scrollTo(0,document.getElementById('Msg').scrollHeight)
+                     
                         }
-                        else{
+                        }
+                        else if( user.isdelete === "0"){
+                            if(user.img != "" || user.msg != ""){
+                            if(user.img != ""){
+                                temp += `
+                                    <div class="message message-right">
+                            
+                                    <div class="message-body">
+                                    <div class="message-row">
+                                            <div class="d-flex
+                                                align-items-center
+                                                justify-content-end">
+
+                                                <div class="dropdown mr-3">
+                                                    <a class="text-muted
+                                                        opacity-60 ml-3"
+                                                        href="#"
+                                                        data-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                        <i class="fa
+                                                            fa-ellipsis-v"></i>
+                                                    </a>
+
+                                                    <div class="dropdown-menu">
+                                                        
+                                                        <a class="dropdown-item
+                                                            d-flex
+                                                            align-items-center"
+                                                            href="#" onclick="sharePic('${user.img}')">
+                                                            Share <span
+                                                                class="ml-auto
+                                                                fa
+                                                                fa-share-alt"></span>
+                                                        </a>
+                                                        <a class="dropdown-item
+                                                            d-flex
+                                                            align-items-center"
+                                                            href="#" onclick="deleteMsg('${data.key}')">
+                                                            Delete<span
+                                                                class="ml-auto
+                                                                fa fa-trash"></span>
+                                                        </a>
+                                                        <a class="dropdown-item
+                                                            d-flex
+                                                            align-items-center"
+                                                            href="#" onclick="deleteBoth('${data.key}')">
+                                                            Remove <span
+                                                                class="ml-auto
+                                                                fa fa-dumpster"></span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                       
+                                                <div class="message-content
+                                                    bg-primary text-white">
+        
+                                                    <div class="form-row">
+                                                        <div class="col py-3">
+                                                            <img width="97%"
+                                                                class="img-fluid
+                                                                rounded"
+                                                                src="${user.img}"
+                                                                data-action="zoom"
+                                                                alt="">
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div class="mt-1">
+                                                        <small
+                                                            class="opacity-65">${dateTime[1]}</small>
+                                                    </div>
+                                                </div>
+                                                                          
+                                                                          
+                                            </div>
+                                        </div>
+                                    </div>
+                                        </div>
+
+                                    `
+                                    document.getElementById('Msg').scrollTo(0,document.getElementById('Msg').scrollHeight)
+                                    
+                                    
+                            }
+                            else{
                         temp +=`
                                     <div class="message message-right">
                             
@@ -1843,7 +1349,7 @@
                                                             <a class="dropdown-item
                                                                 d-flex
                                                                 align-items-center"
-                                                                href="#">
+                                                                href="#" onclick="editMsg('${user.msg}')">
                                                                 Edit <span
                                                                     class="ml-auto
                                                                     fa fa-pen"></span>
@@ -1851,7 +1357,7 @@
                                                             <a class="dropdown-item
                                                                 d-flex
                                                                 align-items-center"
-                                                                href="#">
+                                                                href="#" onclick="shareMsg('${user.msg}')">
                                                                 Share <span
                                                                     class="ml-auto
                                                                     fa
@@ -1860,10 +1366,18 @@
                                                             <a class="dropdown-item
                                                                 d-flex
                                                                 align-items-center"
-                                                                href="#">
-                                                                Delete <span
+                                                                href="#" onclick="deleteMsg('${data.key}')">
+                                                                Delete<span
                                                                     class="ml-auto
                                                                     fa fa-trash"></span>
+                                                            </a>
+                                                            <a class="dropdown-item
+                                                                d-flex
+                                                                align-items-center"
+                                                                href="#" onclick="deleteBoth('${data.key}')">
+                                                                Remove <span
+                                                                    class="ml-auto
+                                                                    fa fa-dumpster"></span>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -1888,15 +1402,601 @@
                                     </div>
                                     `
                                     document.getElementById('Msg').scrollTo(0,document.getElementById('Msg').scrollHeight)
+                                    
+                                    
+                                }
                             }
+                        }
                         }
                         })
                         document.getElementById('addMsg').innerHTML = temp
+                        document.getElementById('Msg').scrollTo(0,document.getElementById('Msg').scrollHeight)
+                    })
+                }
+
+                function editMsg(msg){
+                    document.getElementById('chat-id-2-input').value = msg
+                }
+
+                function shareMsg(msg){
+                    let myfriend = ""
+                    document.getElementById('chat-2').innerHTML = ``
+                    let db = firebase.database().ref('friends')
+                    db.on('value' , (users)=>{
+                            users.forEach((data)=>{
+                                let user = data.val()
+                                if(user.me === myself){                   
+                                    let db1 = firebase.database().ref('users')
+                                    let temp = user.you
+                                    db1.on('value' , (users)=>{
+                                        users.forEach((data)=>{
+                                            let user = data.val()
+                                            if(user.email === temp){
+                                                myfriend = data.key
+                                                
+                                                document.getElementById('chat-2').innerHTML +=`
+                                                <a class="text-reset" style="margin:30px"
+                                                onclick="sendMsgTo('${msg}','${myfriend}')" >
+                                                    <div class="card
+                                                        card-active-listener">
+                                                        <div class="card-body">
+
+                                                            <div class="media">
+
+                                                                <div class="avatar
+                                                                    avatar-online mr-5">
+                                                                    <img
+                                                                        class="avatar-img"
+                                                                        src="${user.photoURL}"
+                                                                        >
+                                                                </div>
+
+
+                                                                <div class="media-body
+                                                                    overflow-hidden">
+                                                                    <div class="d-flex
+                                                                        align-items-center
+                                                                        mb-1">
+                                                                        <h6
+                                                                            class="text-truncate
+                                                                            mb-0
+                                                                            mr-auto">${user.name}</h6>
+                                                                        <p class="small
+                                                                            text-muted
+                                                                            text-nowrap
+                                                                            ml-4">10:42
+                                                                            am</p>
+                                                                    </div>
+                                                                    <div
+                                                                        class="text-truncate">${user.email}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                </a>
+                                                `
+                                            }
+                                        })
+                                    })
+                                }
+                                else if(user.you === myself){                  
+                                    let db1 = firebase.database().ref('users')
+                                    let temp = user.me
+                                  
+                                    db1.on('value' , (users)=>{
+                                        users.forEach((data)=>{
+                                            let user = data.val()
+                                            if(user.email === temp){ 
+
+                                            let database = firebase.database().ref('users')
+                                            database.on('value' , (users)=>{
+                                                users.forEach((data)=>{
+                                                    let user = data.val()
+                                                    if(user.email === myself)
+                                                        myfriend = data.key
+                                                })
+                                            })
+
+                                            document.getElementById('chat-2').innerHTML +=`
+                                                <a class="text-reset" style="margin:30px"
+                                                    onclick="sendMsgTo('${msg}','${myfriend}')" >
+                                                    <div class="card
+                                                        card-active-listener">
+                                                        <div class="card-body">
+
+                                                            <div class="media">
+
+                                                                <div class="avatar
+                                                                    avatar-online mr-5">
+                                                                    <img
+                                                                        class="avatar-img"
+                                                                        src="${user.photoURL}"
+                                                                        >
+                                                                </div>
+
+
+                                                                <div class="media-body
+                                                                    overflow-hidden">
+                                                                    <div class="d-flex
+                                                                        align-items-center
+                                                                        mb-1">
+                                                                        <h6
+                                                                            class="text-truncate
+                                                                            mb-0
+                                                                            mr-auto">${user.name}</h6>
+                                                                        <p class="small
+                                                                            text-muted
+                                                                            text-nowrap
+                                                                            ml-4">10:42
+                                                                            am</p>
+                                                                    </div>
+                                                                    <div
+                                                                        class="text-truncate">${user.email}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                </a>
+                                                `
+                                            }
+                                        })
+                                    })
+                                }
+                        })
+                    })
+                }
+
+                function sendMsgTo(mymsg,myfriend){
+                    let message = { img : "" , msg : mymsg , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0" , mydelete : "0" }
+
+                    firebase.database().ref('chatMsg').child(myfriend).push(message,(error) => {
+                        if(error){
+                            alert(error)
+                        }
+                    })
+
+                    location.replace("chat-2.html?theme="+theme+"&user="+friend+"&myself="+myself+"&bff="+bff)
+                }
+
+                function sharePic(pic){
+                    let myfriend = ""
+                    document.getElementById('chat-2').innerHTML = ``
+                    let db = firebase.database().ref('friends')
+                    db.on('value' , (users)=>{
+                            users.forEach((data)=>{
+                                let user = data.val()
+                                if(user.me === myself){                   
+                                    let db1 = firebase.database().ref('users')
+                                    let temp = user.you
+                                    db1.on('value' , (users)=>{
+                                        users.forEach((data)=>{
+                                            let user = data.val()
+                                            if(user.email === temp){
+                                                myfriend = data.key
+                                                
+                                                document.getElementById('chat-2').innerHTML +=`
+                                                <a class="text-reset" style="margin:30px"
+                                                onclick="sendPicTo('${pic}','${myfriend}')" >
+                                                    <div class="card
+                                                        card-active-listener">
+                                                        <div class="card-body">
+
+                                                            <div class="media">
+
+                                                                <div class="avatar
+                                                                    avatar-online mr-5">
+                                                                    <img
+                                                                        class="avatar-img"
+                                                                        src="${user.photoURL}"
+                                                                        >
+                                                                </div>
+
+
+                                                                <div class="media-body
+                                                                    overflow-hidden">
+                                                                    <div class="d-flex
+                                                                        align-items-center
+                                                                        mb-1">
+                                                                        <h6
+                                                                            class="text-truncate
+                                                                            mb-0
+                                                                            mr-auto">${user.name}</h6>
+                                                                        <p class="small
+                                                                            text-muted
+                                                                            text-nowrap
+                                                                            ml-4">10:42
+                                                                            am</p>
+                                                                    </div>
+                                                                    <div
+                                                                        class="text-truncate">${user.email}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                </a>
+                                                `
+                                            }
+                                        })
+                                    })
+                                }
+                                else if(user.you === myself){                  
+                                    let db1 = firebase.database().ref('users')
+                                    let temp = user.me
+                                  
+                                    db1.on('value' , (users)=>{
+                                        users.forEach((data)=>{
+                                            let user = data.val()
+                                            if(user.email === temp){ 
+
+                                            let database = firebase.database().ref('users')
+                                            database.on('value' , (users)=>{
+                                                users.forEach((data)=>{
+                                                    let user = data.val()
+                                                    if(user.email === myself)
+                                                        myfriend = data.key
+                                                })
+                                            })
+
+                                            document.getElementById('chat-2').innerHTML +=`
+                                                <a class="text-reset" style="margin:30px"
+                                                    onclick="sendPicTo('${pic}','${myfriend}')" >
+                                                    <div class="card
+                                                        card-active-listener">
+                                                        <div class="card-body">
+
+                                                            <div class="media">
+
+                                                                <div class="avatar
+                                                                    avatar-online mr-5">
+                                                                    <img
+                                                                        class="avatar-img"
+                                                                        src="${user.photoURL}"
+                                                                        >
+                                                                </div>
+
+
+                                                                <div class="media-body
+                                                                    overflow-hidden">
+                                                                    <div class="d-flex
+                                                                        align-items-center
+                                                                        mb-1">
+                                                                        <h6
+                                                                            class="text-truncate
+                                                                            mb-0
+                                                                            mr-auto">${user.name}</h6>
+                                                                        <p class="small
+                                                                            text-muted
+                                                                            text-nowrap
+                                                                            ml-4">10:42
+                                                                            am</p>
+                                                                    </div>
+                                                                    <div
+                                                                        class="text-truncate">${user.email}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                </a>
+                                                `
+                                            }
+                                        })
+                                    })
+                                }
+                        })
+                    })                    
+                }
+
+                function sendPicTo(mypic,myfriend){
+                    let message = { img : mypic , msg : "" , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0" , mydelete : "0" }
+
+                    firebase.database().ref('chatMsg').child(myfriend).push(message,(error) => {
+                        if(error){
+                            alert(error)
+                        }
+                    })
+
+                    location.replace("chat-2.html?theme="+theme+"&user="+friend+"&myself="+myself+"&bff="+bff)
+                }  
+                
+                function deleteMsg(datakey){
+                    let db = firebase.database().ref('chatMsg').child(friend)
+                    let message = {}
+                        db.on('value' , (users)=>{
+                            users.forEach((data)=>{
+                                let user = data.val()
+                                if(data.key === datakey){
+                                    if(friend === bff)
+                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : "1" }
+                                    else
+                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : "1" , mydelete : user.mydelete }
+
+                                    
+                                }
+                            })
+                        })
+                        firebase.database().ref('chatMsg').child(friend+'/'+datakey).update(message)
+                }
+
+                function deleteBoth(datakey){
+                    firebase.database().ref('chatMsg').child(friend+'/'+datakey).remove()
+                }
+
+                function deleteAll(){
+                    let db = firebase.database().ref('chatMsg').child(friend)
+                    let message = {}
+                        db.on('value' , (users)=>{
+                            users.forEach((data)=>{
+                                let user = data.val()
+                                    if(friend === bff)
+                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : "1" }
+                                    else
+                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : "1" , mydelete : user.mydelete }
+                                        
+                                    firebase.database().ref('chatMsg').child(friend+'/'+data.key).update(message) 
+                            })
+                        }) 
+                        setTimeout(() => { location.replace("chat-2.html?theme="+theme+"&user="+friend+"&myself="+myself+"&bff="+bff)  }, 1000)  
+                               
+                        
+                }
+
+                function backupAll(){
+                    let db = firebase.database().ref('chatMsg').child(friend)
+                    let message = {}
+                        db.on('value' , (users)=>{
+                            users.forEach((data)=>{
+                                let user = data.val()
+                                    if(friend === bff)
+                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : "0" }
+                                    else
+                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : "0" , mydelete : user.mydelete }
+                                        
+                                    firebase.database().ref('chatMsg').child(friend+'/'+data.key).update(message)
+                            })
+                        })  
+                        setTimeout(() => { location.replace("chat-2.html?theme="+theme+"&user="+friend+"&myself="+myself+"&bff="+bff)  }, 1000)                      
+                }
+
+                function displayFriend(){
+                    let db = firebase.database().ref('users')
+
+                    let pic = ""
+                    let name = ""
+                    let bio = ""
+
+                    db.on('value' , (users)=>{
+                        users.forEach((data)=>{
+                            let user = data.val()
+                            if(bff===data.key){
+                                pic = user.photoURL
+                                name = user.name
+                                bio = user.bio
+                            } 
+                        })
+                    })
+
+                    document.getElementById('username').innerHTML = name
+
+                    document.getElementById('info').innerHTML =
+                    `<div class="avatar avatar-xl mx-5 mb-5">
+                        <img class="avatar-img"
+                            src="${pic}" alt="">
+                    </div>
+                    <h5>${name}</h5>
+                    <p class="text-muted">${bio}</p>`
+                }
+
+                function showImg(){
+                    let db = firebase.database().ref('chatMsg').child(friend)
+                    let temp = ``
+
+                    db.on('value' , (users)=>{
+                        users.forEach((data)=>{
+                            let user = data.val()
+                            if(friend===bff && user.mydelete === "0" ){
+                            if(user.img !== ""){
+                                temp +=     `<li class="list-group-item py-6">
+                                                <div class="media">
+
+                                                    <div class="avatar avatar-sm
+                                                        d-lg-inline-block mr-5">
+                                                        <img class="avatar-img"
+                                                            src="${user.img}" alt="">
+                                                    </div>
+
+                                                    <div class="media-body
+                                                        align-self-center
+                                                        overflow-hidden">
+                                                        <h6 class="text-truncate
+                                                            mb-0">
+                                                            <a href="#"
+                                                                class="text-reset"
+                                                                title="${user.msg}">${user.msg}</a>
+                                                        </h6>
+
+                                                        <ul class="list-inline
+                                                            small mb-0">
+                                                            <li
+                                                                class="list-inline-item">
+                                                                <span
+                                                                    class="text-muted">${user.dateTime}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div
+                                                        class="align-self-center
+                                                        ml-5">
+                                                        <div class="dropdown">
+                                                            <a href="#"
+                                                                class="btn
+                                                                btn-sm btn-ico
+                                                                btn-link
+                                                                text-muted
+                                                                w-auto"
+                                                                data-toggle="dropdown"
+                                                                aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                <i class="fa
+                                                                    fa-ellipsis-v"></i>
+                                                            </a>
+                                                            <div
+                                                                class="dropdown-menu">
+                                                                <a
+                                                                    class="dropdown-item
+                                                                    d-flex
+                                                                    align-items-center"
+                                                                    href="#" onclick="sharePic('${user.img}')">
+                                                                    Share <span
+                                                                        class="ml-auto
+                                                                        fa
+                                                                        fa-share-alt"></span>
+                                                                </a>
+                                                                <a
+                                                                    class="dropdown-item
+                                                                    d-flex
+                                                                    align-items-center"
+                                                                    href="#" onclick="deleteMsg('${data.key}')">
+                                                                    Delete <span
+                                                                        class="ml-auto
+                                                                        fa
+                                                                        fa-trash"></span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </li>`
+                            }
+                        }
+                        else if(friend!==bff && user.isdelete === "0"){
+                            if(user.img !== ""){
+                                temp +=     `<li class="list-group-item py-6">
+                                                <div class="media">
+
+                                                    <div class="avatar avatar-sm
+                                                        d-lg-inline-block mr-5">
+                                                        <img class="avatar-img"
+                                                            src="${user.img}" alt="">
+                                                    </div>
+
+                                                    <div class="media-body
+                                                        align-self-center
+                                                        overflow-hidden">
+                                                        <h6 class="text-truncate
+                                                            mb-0">
+                                                            <a href="#"
+                                                                class="text-reset"
+                                                                title="${user.msg}">${user.msg}</a>
+                                                        </h6>
+
+                                                        <ul class="list-inline
+                                                            small mb-0">
+                                                            <li
+                                                                class="list-inline-item">
+                                                                <span
+                                                                    class="text-muted">${user.dateTime}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div
+                                                        class="align-self-center
+                                                        ml-5">
+                                                        <div class="dropdown">
+                                                            <a href="#"
+                                                                class="btn
+                                                                btn-sm btn-ico
+                                                                btn-link
+                                                                text-muted
+                                                                w-auto"
+                                                                data-toggle="dropdown"
+                                                                aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                <i class="fa
+                                                                    fa-ellipsis-v"></i>
+                                                            </a>
+                                                            <div
+                                                                class="dropdown-menu">
+                                                                <a
+                                                                    class="dropdown-item
+                                                                    d-flex
+                                                                    align-items-center"
+                                                                    href="#" onclick="sharePic('${user.img}')">
+                                                                    Share <span
+                                                                        class="ml-auto
+                                                                        fa
+                                                                        fa-share-alt"></span>
+                                                                </a>
+                                                                <a
+                                                                    class="dropdown-item
+                                                                    d-flex
+                                                                    align-items-center"
+                                                                    href="#" onclick="deleteMsg('${data.key}')">
+                                                                    Delete <span
+                                                                        class="ml-auto
+                                                                        fa
+                                                                        fa-trash"></span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </li>`
+                            }
+                        }
+                        })
+                    })
+                    document.getElementById('allImg').innerHTML = temp 
+
+                }
+
+                function unFriend(){
+                    let db = firebase.database().ref('users')
+
+                    let email = ""
+
+                    db.on('value' , (users)=>{
+                        users.forEach((data)=>{
+                            let user = data.val()
+                            if(bff == data.key){
+                                email = user.email
+                            } 
+                        })
+                    })
+
+                    let db1 = firebase.database().ref('friends')
+
+                    db1.on('value' , (users)=>{
+                        users.forEach((data)=>{
+                            let user = data.val()
+                            if((user.me === email && user.you === myself) || (user.you === email && user.me === myself)){
+                                db1.child(data.key).remove()
+                                location.replace("HomePage.html?theme="+theme)
+                            } 
+                        })
                     })
                 }
                     
             </script>
-
         </body>
 
     </html>

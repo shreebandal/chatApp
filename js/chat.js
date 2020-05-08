@@ -1,3 +1,4 @@
+let myTemp = ""
 function onloading(){
     if(document.getElementById('mail').innerHTML === "12345@gmail.com"){
         document.getElementById('userlog').innerHTML = `
@@ -68,9 +69,29 @@ function onStateChange(user){
                 userProfile.name = firebase.auth().currentUser.displayName
                 userProfile.photoURL = firebase.auth().currentUser.photoURL
 
+
                 firebase.database().ref('users').push(userProfile, callback)
             }
         })
+
+        let db1 = firebase.database().ref('users')
+                    db1.on('value' , (users)=>{
+                        users.forEach((data)=>{
+                            let user = data.val()
+                            if(user.email === firebase.auth().currentUser.email)
+                                myTemp = data.key
+                        })
+                    })
+
+                    setTimeout(()=>{
+                        const messaging = firebase.messaging();
+                        messaging.requestPermission().then(()=>{
+                            return messaging.getToken();
+                        }).then((token)=>{
+                            firebase.database().ref('fcmTokens').child(myTemp).set({token_id : token})
+                        })
+                    },5000)
+                    
         document.getElementById('pic').src = firebase.auth().currentUser.photoURL
         document.getElementById('name').innerHTML = firebase.auth().currentUser.displayName
         document.getElementById('mail').innerHTML = firebase.auth().currentUser.email 
@@ -88,6 +109,7 @@ function onStateChange(user){
         </div>
         `
         requestPending()
+
     }
     else{
         document.getElementById('pic').src = 'images/profile.jpg'
@@ -301,236 +323,6 @@ function deleteRequest(user){
 }
 
 
-
-
-
-// function onloading(){
-//     let db = firebase.database().ref('users')
-//         db.on('value' , (users)=>{
-//             users.forEach((data)=>{
-//                 let user = data.val()
-//                 if(user.email === firebase.auth().currentUser.email){
-//                     if(user.password != ""){
-//                     document.getElementById('setPassword').innerHTML = `
-//                     <div class="card-header position-relative">
-//                                                         <a href="#" class="text-reset
-//                                                             d-block stretched-link
-//                                                             collapsed"
-//                                                             data-toggle="collapse"
-//                                                             data-target="#profile-settings-security"
-//                                                             aria-expanded="true"
-//                                                             aria-controls="profile-settings-security">
-//                                                             <div class="row no-gutters
-//                                                                 align-items-center">
-//                                                                 <!-- Title -->
-//                                                                 <div class="col">
-//                                                                     <h5>Security</h5>
-//                                                                     <p>a password must be eight characters including one uppercase letter, one special character and alphanumeric characters.</p>
-//                                                                 </div>
-        
-//                                                                 <!-- Icon -->
-//                                                                 <div class="col-auto">
-//                                                                     <i class="text-muted
-//                                                                         icon-md fa
-//                                                                         fa-shield-alt"></i>
-//                                                                 </div>
-//                                                             </div>
-//                                                         </a>
-//                                                     </div>
-        
-//                                                     <div id="profile-settings-security"
-//                                                         class="collapse show"
-//                                                         data-parent="#profile-settings">
-//                                                         <div class="card-body">
-//                                                             <form action="#">
-//                                                                 <div class="form-group">
-//                                                                     <label class="small"
-//                                                                         for="current-password">Current
-//                                                                         password</label>
-//                                                                     <input required
-//                                                                         name="current-password" id="current-password" type="password" class="form-control form-control-lg" placeholder="Current password">
-//                                                                 </div>
-//                                                                 <div class="form-group">
-//                                                                     <label class="small"
-//                                                                         for="new-password">New
-//                                                                         password</label>
-//                                                                     <input
-//                                                                         name="new-password" required
-//                                                                         id="new-password"
-//                                                                         type="password"
-//                                                                         class="form-control
-//                                                                         form-control-lg"
-//                                                                         placeholder="New
-//                                                                         password" onchange="setpassword()">
-//                                                                         <span id="passcode" class="text-danger"></span>
-//                                                                 </div>
-        
-//                                                                 <div class="form-group">
-//                                                                     <label class="small"
-//                                                                         for="verify-password">Verify
-//                                                                         password</label>
-//                                                                     <input
-//                                                                         name="verify-password" required
-//                                                                         id="verify-password"
-//                                                                         type="password"
-//                                                                         class="form-control
-//                                                                         form-control-lg"
-//                                                                         placeholder="Verify
-//                                                                         password" onchange="cheakpass()">
-//                                                                         <span id="passcode1" class="text-danger"></span>
-//                                                                 </div>
-        
-//                                                                 <button class="btn
-//                                                                     btn-lg btn-primary
-//                                                                     btn-block"
-//                                                                     type="button" onclick="updatePassword()">
-//                                                                     Change Password
-//                                                                 </button>
-//                                                             </form>
-//                                                         </div>
-//                                                     </div>
-//                     `
-//                 }
-//                 else{
-//                     document.getElementById('setPassword').innerHTML = `<div class="card-header
-//                                                 position-relative">
-//                                                 <a href="#" class="text-reset
-//                                                     d-block stretched-link
-//                                                     collapsed"
-//                                                     data-toggle="collapse"
-//                                                     data-target="#profile-settings-security"
-//                                                     aria-expanded="true"
-//                                                     aria-controls="profile-settings-security">
-//                                                     <div class="row no-gutters
-//                                                         align-items-center">
-                                                 
-//                                                         <div class="col">
-//                                                             <h5>Security</h5>
-//                                                             <p>a password must be eight characters including one uppercase letter, one special character and alphanumeric characters.</p>
-//                                                         </div>
-
-                                                
-//                                                         <div class="col-auto">
-//                                                             <i class="text-muted
-//                                                                 icon-md fa
-//                                                                 fa-shield-alt"></i>
-//                                                         </div>
-//                                                     </div>
-//                                                 </a>
-//                                             </div>
-
-//                                             <div id="profile-settings-security"
-//                                                 class="collapse show"
-//                                                 data-parent="#profile-settings">
-//                                                 <div class="card-body">
-                                                
-//                                                         <div class="form-group">
-//                                                             <label class="small"
-//                                                                 for="new-password">New
-//                                                                 password</label>
-//                                                             <input
-//                                                                 name="new-password" required
-//                                                                 id="new-password"
-//                                                                 type="password"
-//                                                                 class="form-control
-//                                                                 form-control-lg"
-//                                                                 placeholder="New
-//                                                                 password" onchange="setpassword()">
-//                                                             <span id="passcode" class="text-danger"></span>
-//                                                         </div>
-
-//                                                         <div class="form-group">
-//                                                             <label class="small"
-//                                                                 for="verify-password">Verify
-//                                                                 password</label>
-//                                                             <input
-//                                                                 name="verify-password" required
-//                                                                 id="verify-password"
-//                                                                 type="password"
-//                                                                 class="form-control
-//                                                                 form-control-lg"
-//                                                                 placeholder="Verify
-//                                                                 password" onchange="cheakpass()">
-//                                                             <span id="passcode1" class="text-danger"></span>
-//                                                         </div>
-
-//                                                         <button class="btn
-//                                                             btn-lg btn-primary
-//                                                             btn-block"
-//                                                             type="button" onclick="changePassword()">
-//                                                             Change Password
-//                                                         </button>
-                                                   
-//                                                 </div>
-//                                             </div>`
-
-//                 }
-//             }
-//             })
-//         })
-// }
-
-// let validpassword = false;
-
-// function setpassword(){
-//     let reg1 = /([A-Z])/;
-//     let reg2 = /([a-z])/;
-//     let reg3 = /([0-9])/;
-//     let reg4 = /[~!@#$%^&]/;
-//     let str = document.getElementById('new-password').value;
-//     if (reg1.test(str) && str.length <= 20 && str.length >= 8 && reg2.test(str) && reg3.test(str) && reg4.test(str)) {
-//         document.getElementById('new-password').classList.remove('is-invalid');
-//         document.getElementById('new-password').classList.add('is-valid');
-//         document.getElementById("passcode").innerHTML = "";
-//         validpassword = true;
-//     }
-//     else {
-//         document.getElementById('new-password').classList.add('is-invalid');
-//         document.getElementById('new-password').classList.remove('is-valid');
-//         document.getElementById("passcode").innerHTML = "Password must be at least 8 to 20 characters long where 1 upper case, 1 lower case, 1 number and 1 special character";
-//         validpassword = false;
-//     }
-// }
-
-// function cheakpass(){
-//     let str1 = document.getElementById('new-password').value;
-//     let str2 = document.getElementById('verify-password').value;
-//     if (str1 == str2) {
-//         document.getElementById('verify-password').classList.remove('is-invalid');
-//         document.getElementById('verify-password').classList.add('is-valid');
-//         document.getElementById("passcode1").innerHTML = "";
-//     }
-//     else {
-//         document.getElementById('verify-password').classList.add('is-invalid');
-//         document.getElementById('verify-password').classList.remove('is-valid');
-//         document.getElementById("passcode1").innerHTML = "Password doesn't matched";
-//     }
-
-// }
-
-// function changePassword(){
-//     if(validpassword && document.getElementById('new-password').value === document.getElementById('verify-password').value){
-//         let db = firebase.database().ref('users/')
-//         let temp = ""
-//         let userProfile = {}
-//         db.on('value' , (users)=>{
-//             users.forEach((data)=>{
-//                 let user = data.val()
-//                 if(user.email === firebase.auth().currentUser.email){
-//                     userProfile = { bio : user.bio , email : user.email , name : user.name , password : user.password , photoURL : user.photoURL }
-//                     userProfile.password = document.getElementById('new-password').value
-//                     temp = data.key
-//                 }
-//             })
-//         })
-//         firebase.database().ref('users/'+temp).update(userProfile)
-//         // location.replace('settings.html')
-//     }
-//     else{
-//         alert("something went wrong please try again")
-//         return false;
-//     }
-// }
 
 
 
