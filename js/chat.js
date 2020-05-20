@@ -31,9 +31,6 @@ function signInWithGoogle(){
     let provider = new firebase.auth.GoogleAuthProvider()
     firebase.auth().signInWithPopup(provider)
 
-    setTimeout(()=>{
-        location.replace('HomePage.html?theme='+theme)
-    },30000)
 }
 
 function onfirebaseSateChange(){
