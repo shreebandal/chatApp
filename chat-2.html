@@ -62,9 +62,7 @@
                                     <div class="col-9 col-xl-6">
                                         <div class="media text-center
                                             text-xl-left">
-                                            <div class="avatar avatar-sm
-                                                avatar-online
-                                                d-lg-inline-block mr-5">
+                                            <div id="avatar">
                                                 <img class="avatar-img"
                                                     src="images/profile.jpg"
                                                     id="friendpic">
@@ -75,10 +73,9 @@
                                                 text-truncate">
                                                 <h6 class="text-truncate mb-n1"
                                                     id="friendname"></h6>
-                                                <span class="badge badge-dot
-                                                    badge-success d-inline-block
-                                                    d-xl-none mr-1"></span>
-                                                <small class="text-muted">Online</small>
+                                                <div id="isonline">
+                                                    
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -555,7 +552,7 @@
 
                     let dataKey = ""
                     if(input.value.length > 0 && count == 0){            
-                    let message = { img : "" , msg : "" , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0" , mydelete : "0" }
+                    let message = { img : "" , msg : "" , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0" , mydelete : "0" , isread : "0" , myread : "0"}
                     firebase.database().ref('chatMsg').child(friend).push(message)
                     count++
                     }
@@ -585,6 +582,19 @@
                             if(bff===data.key){
                                 document.getElementById('friendpic').src = user.photoURL
                                 document.getElementById('friendname').innerHTML = user.name
+                                if(user.lastseen === "online"){
+                                document.getElementById('avatar').setAttribute("class", "avatar avatar-online avatar-sm d-lg-inline-block mr-5")
+                                document.getElementById('isonline').innerHTML =
+                                                    `<span class="badge badge-dot
+                                                        badge-success d-inline-block
+                                                        d-xl-none mr-1"></span>
+                                                    <small class="text-muted">online</small>`
+                                }
+                                else{
+                                    document.getElementById('avatar').setAttribute("class", "avatar avatar-sm d-lg-inline-block mr-5")
+                                    document.getElementById('isonline').innerHTML =
+                                                    `<small class="text-muted">${user.lastseen}</small>`
+                                }
                             } 
                         })
                     })
@@ -596,17 +606,18 @@
                     if(document.getElementById('chat-id-2-input').value != "" || document.getElementsByClassName('dropzone-previews-js')[0].innerHTML != ""){
                     let message = {}
                     if(document.getElementsByClassName('dropzone-previews-js')[0].innerHTML != ""){
-                        message = { img : document.getElementById('filePic').src , msg : document.getElementById('chat-id-2-input').value , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0", mydelete : "0" }
+                        message = { img : document.getElementById('filePic').src , msg : document.getElementById('chat-id-2-input').value , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0", mydelete : "0" , isread : "0" , myread : "0"}
                         document.getElementsByClassName('dropzone-previews-js')[0].innerHTML = ""
                     }
                     else{
-                        message = { img : "" , msg : document.getElementById('chat-id-2-input').value , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0" , mydelete : "0" }
+                        message = { img : "" , msg : document.getElementById('chat-id-2-input').value , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0" , mydelete : "0" , isread : "0" , myread : "0" }
                     }
                     firebase.database().ref('chatMsg').child(friend).push(message,(error) => {
                         if(error){
                             alert(error)
                         }
                     })
+
                   
                     if(count === 1){
                     let dataKey = ""
@@ -645,13 +656,7 @@
                                     'message' : message.msg.substring(0,30) + '...',
                                     'icon' : firebase.auth().currentUser.photoURL
                                 }  
-                            }),
-                            success : (response) => {
-                                console.log(response)
-                            },
-                            error : (xhr,status,errormsg) => {
-                                console.log(xhr.errormsg)
-                            }
+                            })
                         })
                     }) 
                     document.getElementById('chat-id-2-input').value = ""
@@ -663,10 +668,14 @@
                     db.on('value' , (users)=>{
                         let temp = ``
                         users.forEach((data)=>{
+                            let mycolor = ''
+                            let iscolor = ''
                             let user = data.val()
                             let dateTime = user.dateTime.split(',')
                             if(friend===bff){
                             if(user.userId === myself && user.mydelete === "0"){
+                                if(user.isread === "1")
+                                    mycolor = "style='color:blue'"
                                 if(user.img != "" || user.msg != ""){
                                 if(user.img != ""){
                                 temp += `
@@ -740,7 +749,8 @@
 
                                                         <div class="mt-1">
                                                             <small
-                                                                class="opacity-65">${dateTime[1]}</small>
+                                                                class="opacity-65" style="float:right">${dateTime[1]}
+                                                                <i class="fa fa-check-double" ${mycolor}></i></small>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -821,7 +831,8 @@
 
                                                         <div class="mt-1">
                                                             <small
-                                                                class="opacity-65">${dateTime[1]}</small>
+                                                                class="opacity-65" style="float:right">${dateTime[1]}
+                                                                <i class="fa fa-check-double" ${mycolor}></i></small>
                                                         </div>
                                                     </div>
                                             
@@ -909,7 +920,8 @@
 
                                                     <div class="mt-1">
                                                         <small
-                                                            class="opacity-65">${dateTime[1]}</small>
+                                                            class="opacity-65" style="float:right">${dateTime[1]}
+                                                            </small>
                                                     </div>
                                                 </div>
                              
@@ -981,7 +993,8 @@
 
                                                         <div class="mt-1">
                                                             <small
-                                                                class="opacity-65">${dateTime[1]}</small>
+                                                                class="opacity-65" style="float:right">${dateTime[1]}
+                                                                </small>
                                                         </div>
                                                     </div>
                             
@@ -1109,7 +1122,8 @@
 
                                                     <div class="mt-1">
                                                         <small
-                                                            class="opacity-65">${dateTime[1]}</small>
+                                                            class="opacity-65" style="float:right">${dateTime[1]}
+                                                            </small>
                                                     </div>
                                                 </div>
                              
@@ -1181,7 +1195,8 @@
 
                                                 <div class="mt-1">
                                                     <small
-                                                        class="opacity-65">${dateTime[1]}</small>
+                                                        class="opacity-65" style="float:right">${dateTime[1]}
+                                                        </small>
                                                 </div>
                                             </div>
                     
@@ -1237,6 +1252,8 @@
                         }
                         }
                         else if( user.isdelete === "0"){
+                            if(user.myread === "1")
+                                iscolor = "style='color:blue'"
                             if(user.img != "" || user.msg != ""){
                             if(user.img != ""){
                                 temp += `
@@ -1307,7 +1324,8 @@
 
                                                     <div class="mt-1">
                                                         <small
-                                                            class="opacity-65">${dateTime[1]}</small>
+                                                            class="opacity-65" style="float:right">${dateTime[1]}
+                                                            <i class="fa fa-check-double" ${iscolor}></i></small>
                                                     </div>
                                                 </div>
                                                                           
@@ -1388,7 +1406,8 @@
 
                                                         <div class="mt-1">
                                                             <small
-                                                                class="opacity-65">${dateTime[1]}</small>
+                                                                class="opacity-65" style="float:right">${dateTime[1]}
+                                                                <i class="fa fa-check-double" ${iscolor}></i></small>
                                                         </div>
                                                     </div>
                                             
@@ -1555,7 +1574,7 @@
                 }
 
                 function sendMsgTo(mymsg,myfriend){
-                    let message = { img : "" , msg : mymsg , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0" , mydelete : "0" }
+                    let message = { img : "" , msg : mymsg , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0" , mydelete : "0" , isread : "0" , myread : "0" }
 
                     firebase.database().ref('chatMsg').child(myfriend).push(message,(error) => {
                         if(error){
@@ -1703,7 +1722,7 @@
                 }
 
                 function sendPicTo(mypic,myfriend){
-                    let message = { img : mypic , msg : "" , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0" , mydelete : "0" }
+                    let message = { img : mypic , msg : "" , dateTime : new Date().toLocaleString() , userId : myself , isdelete : "0" , mydelete : "0" , isread : "0" , myread : "0" }
 
                     firebase.database().ref('chatMsg').child(myfriend).push(message,(error) => {
                         if(error){
@@ -1722,9 +1741,9 @@
                                 let user = data.val()
                                 if(data.key === datakey){
                                     if(friend === bff)
-                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : "1" }
+                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : "1" , isread : user.isread , myread : user.myread }
                                     else
-                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : "1" , mydelete : user.mydelete }
+                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : "1" , mydelete : user.mydelete , isread : user.isread , myread : user.myread }
 
                                     
                                 }
@@ -1744,9 +1763,9 @@
                             users.forEach((data)=>{
                                 let user = data.val()
                                     if(friend === bff)
-                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : "1" }
+                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : "1" , isread : user.isread , myread : user.myread }
                                     else
-                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : "1" , mydelete : user.mydelete }
+                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : "1" , mydelete : user.mydelete , isread : user.isread , myread : user.myread }
                                         
                                     firebase.database().ref('chatMsg').child(friend+'/'+data.key).update(message) 
                             })
@@ -1763,9 +1782,9 @@
                             users.forEach((data)=>{
                                 let user = data.val()
                                     if(friend === bff)
-                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : "0" }
+                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : "0" , isread : user.isread , myread : user.myread }
                                     else
-                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : "0" , mydelete : user.mydelete }
+                                        message = { img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : "0" , mydelete : user.mydelete , isread : user.isread , myread : user.myread }
                                         
                                     firebase.database().ref('chatMsg').child(friend+'/'+data.key).update(message)
                             })

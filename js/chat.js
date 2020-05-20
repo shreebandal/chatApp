@@ -30,6 +30,10 @@ function onloading(){
 function signInWithGoogle(){
     let provider = new firebase.auth.GoogleAuthProvider()
     firebase.auth().signInWithPopup(provider)
+
+    setTimeout(()=>{
+        location.replace('HomePage.html?theme='+theme)
+    },30000)
 }
 
 function onfirebaseSateChange(){
@@ -48,7 +52,7 @@ function onStateChange(user){
         let temp = ""
 
         if(today.getHours()>12){
-            time = (today.getHours()-12) + ":" + today.getMinutes() + ":" + today.getSeconds()
+            time = (today.getHours()-12) + ":" + today.getMinutes()
             temp = "PM"
         } 
         else {
@@ -127,6 +131,15 @@ function callback(error){
 }
 
 function signOut(){
+    let database = firebase.database().ref('users')
+        database.on('value' , (users)=>{
+            users.forEach((data)=>{
+                let user = data.val()
+                if(user.email === firebase.auth().currentUser.email)
+                    firebase.database().ref('users').child(data.key).update({ bio : user.bio , email : user.email , name : user.name , photoURL : user.photoURL , lastseen : new Date().toLocaleString() })
+            })
+        })
+
     firebase.auth().signOut()
     location.replace('HomePage.html?theme='+theme)
 }
@@ -309,7 +322,7 @@ function showRequestList(){
 function makeChat(user,usermail){
     let db = firebase.database().ref('notification/'+user)
 
-    let myfriends = { me : document.getElementById('mail').innerHTML , you : usermail}
+    let myfriends = { me : document.getElementById('mail').innerHTML , you : usermail }
     firebase.database().ref('friends').push(myfriends,callback)
 
     db.remove()

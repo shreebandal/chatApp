@@ -108,14 +108,6 @@
                         </a>
                     </li>
 
-                    <!-- Settings -->
-                    <!-- <li class="nav-item mt-xl-9">
-                        <a class="nav-link position-relative p-0 py-xl-3"
-                            href="settings.html" title="Settings">
-                            <i class="icon-lg fa fa-cog"></i>
-                        </a>
-                    </li> -->
-
                 </ul>
                 <!-- Menu -->
 
@@ -915,27 +907,6 @@
                                     <h2 class="font-bold mb-6">Demos</h2>
                                     <!-- Title -->
 
-                                    <!-- Search -->
-                                    <form class="mb-6">
-                                        <div class="input-group">
-                                            <input type="text"
-                                                class="form-control
-                                                form-control-lg"
-                                                placeholder="Search for messages
-                                                or users..."
-                                                aria-label="Search for messages
-                                                or users...">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-lg
-                                                    btn-ico btn-secondary
-                                                    btn-minimal" type="submit">
-                                                    <i class="fa fa-search"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <!-- Search -->
-
                                     <!-- Card -->
                                     <div class="card mb-6">
                                         <div class="card-body">
@@ -1091,26 +1062,6 @@
                                     <h2 class="font-bold mb-6">Profile</h2>
                                     <!-- Title -->
 
-                                    <!-- Search -->
-                                    <form class="mb-6">
-                                        <div class="input-group">
-                                            <input type="text"
-                                                class="form-control
-                                                form-control-lg"
-                                                placeholder="Search for messages
-                                                or users..."
-                                                aria-label="Search for messages
-                                                or users...">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-lg
-                                                    btn-ico btn-secondary
-                                                    btn-minimal" type="submit">
-                                                    <i class="fa fa-search"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <!-- Search -->
 
                                     <!-- Card -->
                                     <div class="card mb-6">
@@ -1390,21 +1341,40 @@
                         db.on('value' , (users)=>{
                             users.forEach((data)=>{
                                 let user = data.val()
-                                if(user.me === document.getElementById('mail').innerHTML){                   
+                                if(user.me === document.getElementById('mail').innerHTML){  
+                                    let totalMyNum = 0                 
                                     let db1 = firebase.database().ref('users')
                                     myself = user.me
                                     let temp = user.you
+
                                     db1.on('value' , (users)=>{
                                         users.forEach((data)=>{
                                             let user = data.val()
                                             if(user.email === temp){
                                                 bff = data.key
                                                 friend = data.key  
+                                                let lastSeen = ""
+                                                let ison = "avatar-online"
+                                                if(user.lastseen !== "online"){
+                                                    lastSeen = user.lastseen.split(',')
+                                                    ison = ""
+                                                }
+                                                let dbase = firebase.database().ref('chatMsg').child(friend)
+
+                                                dbase.on('value' , (users)=>{
+                                                    users.forEach((data)=>{
+                                                        let user = data.val()
+                                                        if(user.myread === "0" && user.userId !== document.getElementById('mail').innerHTML)
+                                                            totalMyNum++
+                                                    })
+                                                })
+
+                                                setTimeout(()=>{
                                                 document.getElementById('fav').innerHTML +=`
                                                 <a href="#" class="d-block text-reset
                                                     mr-7 mr-lg-6" onclick="groupchat()">
                                                     <div class="avatar avatar-sm
-                                                        avatar-online mb-3">
+                                                    ${ison} mb-3">
                                                         <img class="avatar-img"
                                                             src="${user.photoURL}"
                                                         >
@@ -1422,7 +1392,7 @@
                                                             <div class="media">
 
                                                                 <div class="avatar
-                                                                    avatar-online mr-5">
+                                                                    ${ison} mr-5">
                                                                     <img
                                                                         class="avatar-img"
                                                                         src="${user.photoURL}"
@@ -1442,13 +1412,20 @@
                                                                         <p class="small
                                                                             text-muted
                                                                             text-nowrap
-                                                                            ml-4">10:42
-                                                                            am</p>
+                                                                            ml-4">${lastSeen}</p>
                                                                     </div>
                                                                     <div
                                                                         class="text-truncate">${user.email}
                                                                     </div>
                                                                 </div>
+                                                            </div>
+
+                                                            <div
+                                                                class="badge badge-circle
+                                                                badge-primary
+                                                                badge-border-light
+                                                                badge-top-right">
+                                                                <span>${totalMyNum}</span>
                                                             </div>
 
                                                         </div>
@@ -1457,15 +1434,18 @@
                                                     </div>
                                                 </a>
                                                 `
+                                            },1000)
                                             }
                                         })
                                     })
+                                    
                                 }
                                 else if(user.you === document.getElementById('mail').innerHTML){                  
                                     let db1 = firebase.database().ref('users')
                                     myself = user.you
                                     let temp = user.me
                                     let database = firebase.database().ref('users')
+                                    let totalIsNum = 0
 
                                     database.on('value' , (users)=>{
                                         users.forEach((data)=>{
@@ -1473,6 +1453,16 @@
                                             if(user.email === myself)
                                                 friend = data.key
                                         })
+
+                                        let dbase = firebase.database().ref('chatMsg').child(friend)
+
+                                                dbase.on('value' , (users)=>{
+                                                    users.forEach((data)=>{
+                                                        let user = data.val()
+                                                        if(user.isread === "0" && user.userId !== document.getElementById('mail').innerHTML)
+                                                            totalIsNum++
+                                                    })
+                                                })
                                     })
 
                                     db1.on('value' , (users)=>{
@@ -1480,11 +1470,19 @@
                                             let user = data.val()
                                             if(user.email === temp){ 
                                                 bff = data.key 
+                                                let lastSeen = ""
+                                                let ison = "avatar-online"
+                                                if(user.lastseen !== "online"){
+                                                    lastSeen = user.lastseen.split(',')
+                                                    ison = ""
+                                                }
+
+                                                setTimeout(()=>{
                                                 document.getElementById('fav').innerHTML +=`
                                                 <a href="#" class="d-block text-reset
                                                     mr-7 mr-lg-6" onclick="groupchat()">
                                                     <div class="avatar avatar-sm
-                                                        avatar-online mb-3">
+                                                    ${ison} mb-3">
                                                         <img class="avatar-img"
                                                             src="${user.photoURL}"
                                                         >
@@ -1502,7 +1500,7 @@
                                                             <div class="media">
 
                                                                 <div class="avatar
-                                                                    avatar-online mr-5">
+                                                                    ${ison} mr-5">
                                                                     <img
                                                                         class="avatar-img"
                                                                         src="${user.photoURL}"
@@ -1522,13 +1520,20 @@
                                                                         <p class="small
                                                                             text-muted
                                                                             text-nowrap
-                                                                            ml-4">10:42
-                                                                            am</p>
+                                                                            ml-4">${lastSeen}</p>
                                                                     </div>
                                                                     <div
                                                                         class="text-truncate">${user.email}
                                                                     </div>
                                                                 </div>
+                                                            </div>
+
+                                                            <div
+                                                                class="badge badge-circle
+                                                                badge-primary
+                                                                badge-border-light
+                                                                badge-top-right">
+                                                                <span>${totalIsNum}</span>
                                                             </div>
 
                                                         </div>
@@ -1537,6 +1542,7 @@
                                                     </div>
                                                 </a>
                                                 `
+                                            },1000)
                                             }
                                         })
                                     })
@@ -1545,13 +1551,58 @@
                     })
                     }
                     showRequestList()
+
                     }
 
                 function groupchat(){
-                    if(theme=="dark")
-                        location.replace("chat-2.html?theme=dark&user="+friend+"&myself="+myself+"&bff="+bff)
-                    else 
-                        location.replace("chat-2.html?theme=light&user="+friend+"&myself="+myself+"&bff="+bff)
+                    if(theme=="dark"){
+                            let database = firebase.database().ref('users')
+                            database.on('value' , (users)=>{
+                                users.forEach((data)=>{
+                                    let user = data.val()
+                                    if(user.email === firebase.auth().currentUser.email)
+                                        firebase.database().ref('users').child(data.key).update({ bio : user.bio , email : user.email , name : user.name , photoURL : user.photoURL , lastseen : "online" })
+                                })
+                            })
+
+                            let db = firebase.database().ref('chatMsg').child(friend)
+                            let message = {}
+                                db.on('value' , (users)=>{
+                                    users.forEach((data)=>{
+                                        let user = data.val()
+                                            if(friend === bff)
+                                                firebase.database().ref('chatMsg').child(friend+'/'+data.key).update({ img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : user.mydelete , isread : user.isread , myread : "1" })
+                                            else
+                                                firebase.database().ref('chatMsg').child(friend+'/'+data.key).update({ img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : user.mydelete , isread : "1" , myread : user.myread })
+                                    })
+                                })
+                                
+                            location.replace("chat-2.html?theme=dark&user="+friend+"&myself="+myself+"&bff="+bff)
+                    }
+                    else{
+                        let database = firebase.database().ref('users')
+                            database.on('value' , (users)=>{
+                                users.forEach((data)=>{
+                                    let user = data.val()
+                                    if(user.email === firebase.auth().currentUser.email)
+                                        firebase.database().ref('users').child(data.key).update({ bio : user.bio , email : user.email , name : user.name , photoURL : user.photoURL , lastseen : "online" })
+                                })
+                            })
+
+                            let db = firebase.database().ref('chatMsg').child(friend)
+                            let message = {}
+                                db.on('value' , (users)=>{
+                                    users.forEach((data)=>{
+                                        let user = data.val()
+                                            if(friend === bff)
+                                                firebase.database().ref('chatMsg').child(friend+'/'+data.key).update({ img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : user.mydelete , isread : user.isread , myread : "1" })
+                                            else
+                                                firebase.database().ref('chatMsg').child(friend+'/'+data.key).update({ img : user.img , msg : user.msg , dateTime : user.dateTime , userId : user.userId , isdelete : user.isdelete , mydelete : user.mydelete , isread : "1" , myread : user.myread })
+                                    })
+                                })
+
+                            location.replace("chat-2.html?theme=light&user="+friend+"&myself="+myself+"&bff="+bff)
+                    }
                 }
         </script>
     </body>
